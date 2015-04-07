@@ -14,4 +14,12 @@ return array(
 		//Admin账户
         'ADMIN_NAME' => 'admin',
         'ADMIN_PWD' =>  'be28008b5f',
+		'weichat' => array(
+				'token'=>'thnki2536k5k6ji6h', //填写你设定的key
+				//'encodingaeskey'=>'mnxg26kRcGE2imnNHY6wHB0vc8XGp5PHmND4iLzSToz', //填写加密用的EncodingAESKey，如接口为明文模式可忽略
+				'appid'=>'wx710740d3f1228580',
+				'appsecret'=>'a002be1dbe7bc23537e4e7dd0c615df5',
+				'debug'=>true,
+				'logcallback'=>'logfile',
+		),
 );

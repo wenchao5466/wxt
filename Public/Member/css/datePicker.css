@@ -1,0 +1,109 @@
+.clear {
+	clear: both;
+}
+.it {
+	border: 1px solid rgb(204, 204, 204); vertical-align: middle;
+}
+.so {
+	border: 1px solid rgb(204, 204, 204); vertical-align: middle;
+}
+.is {
+	border: 1px solid rgb(204, 204, 204); vertical-align: middle;
+}
+table.jCalendar {
+	border: 1px solid rgb(255, 255, 255); font-family: Tahoma; border-collapse: collapse; width:185px;
+}
+table.jCalendar th {
+	background: rgb(51, 51, 51); padding: 3px 5px; color: rgb(255, 255, 255); font-weight: normal; vertical-align: middle;
+}
+table.jCalendar td {
+	background: rgb(170, 219, 249); padding: 3px 5px; border: 1px solid rgb(255, 255, 255); text-align: center; color: rgb(0, 0, 0); font-size: 11px;
+}
+table.jCalendar td.other-month {
+	background: rgb(208, 230, 247); color: rgb(85, 85, 85);
+}
+table.jCalendar td.today {
+	background: rgb(255, 102, 0); color: rgb(255, 255, 255);
+}
+table.jCalendar td.selected {
+	background: rgb(255, 102, 102); color: rgb(255, 255, 255);
+}
+table.jCalendar td.dp-hover.selected {
+	background: rgb(255, 255, 255); color: rgb(255, 102, 102);
+}
+table.jCalendar td.dp-hover {
+	background: rgb(255, 255, 255); color: rgb(0, 0, 0);
+}
+table.jCalendar tr.activeWeekHover td {
+	background: rgb(255, 255, 255); color: rgb(0, 0, 0);
+}
+table.jCalendar tr.selectedWeek td {
+	background: rgb(255, 102, 102); color: rgb(255, 255, 255);
+}
+table.jCalendar td.disabled {
+	background: rgb(236, 241, 244); color: rgb(136, 136, 136);
+}
+table.jCalendar td.dp-hover.disabled {
+	background: rgb(236, 241, 244); color: rgb(136, 136, 136);
+}
+table.jCalendar td.unselectable {
+	background: rgb(255, 255, 255); color: rgb(85, 85, 85);
+}
+table.jCalendar td.unselectable:hover {
+	background: rgb(255, 255, 255); color: rgb(85, 85, 85);
+}
+table.jCalendar td.dp-hover.unselectable {
+	background: rgb(255, 255, 255); color: rgb(85, 85, 85);
+}
+div.dp-popup {
+	background: rgb(214, 233, 248);width: 185px; padding: 2px; line-height: 1.2em; font-family: Tahoma; font-size: 12px; position: relative;
+}
+div#dp-popup {
+	position: absolute; z-index: 199;
+}
+div.dp-popup h2 {
+	margin: 2px 0px; padding: 0px; text-align: center; font-size: 12px;
+}
+a#dp-close {
+	padding: 4px 0px; text-align: center; font-size: 11px; display: block;
+}
+a#dp-close:hover {
+	text-decoration: underline;
+}
+div.dp-popup a {
+	padding: 3px 4px 0px; color: rgb(0, 0, 0); text-decoration: none;
+}
+div.dp-popup div.dp-nav-prev {
+	left: 4px; top: -5px; width: 100px; position: absolute;
+}
+div.dp-popup div.dp-nav-prev a {
+	float: left;
+}
+div.dp-popup div.dp-nav-prev a {
+	cursor: pointer;
+}
+div.dp-popup div.dp-nav-next a {
+	
+	cursor: pointer;
+}
+div.dp-popup div.dp-nav-prev a.disabled {
+	cursor: default;
+}
+div.dp-popup div.dp-nav-next a.disabled {
+	cursor: default;
+}
+div.dp-popup div.dp-nav-next {
+	top: -5px;width: 100px; right: 4px; position: absolute;
+}
+div.dp-popup div.dp-nav-next a {
+	float: right;
+}
+div.dp-popup a.disabled {
+	color: rgb(170, 170, 170); cursor: default;
+}
+div.dp-popup td {
+	cursor: pointer;
+}
+div.dp-popup td.disabled {
+	cursor: default;
+}

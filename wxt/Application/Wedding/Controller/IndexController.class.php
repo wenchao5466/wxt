@@ -2,7 +2,7 @@
 
 namespace Wedding\Controller;
 
-use Think\Controller;
+use Wedding\BaseController;
 
 class IndexController extends BaseController {
 	private $userid = 0;
