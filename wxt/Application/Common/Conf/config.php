@@ -22,4 +22,5 @@ return array(
 				'debug'=>true,
 				'logcallback'=>'logfile',
 		),
+		'WEB_HOST'=>'http://123.57.68.39'
 );

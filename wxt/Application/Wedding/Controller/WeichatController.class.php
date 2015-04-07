@@ -1,9 +1,9 @@
 <?php
 namespace Wedding\Controller;
-use Wedding\Controller\BaseController;
+use Think\Controller;
 use Common\ORG\Wechat;
 
-class WeichatController extends BaseController {
+class WeichatController extends Controller {
 	
 	private $_options;
 	
@@ -12,6 +12,8 @@ class WeichatController extends BaseController {
 		$this->_options = C('weichat');
 		
 	}
+	
+	
 	public function index(){
 		
 		$weObj = new Wechat($this->_options);
