@@ -1,0 +1,29 @@
+<html>
+ <head></head>
+ <body>
+  <div id="shouye" style="overflow:hidden;"> 
+   <div id="shouye1" class="ibg"> 
+    <div class="ibg1" style="background-image: url(<?php echo $userpost['photo']?>); margin:0 auto; margin-top:1;"> 
+     <img src="/Public/Xt/Ofingerprint/images/bi1.png" id="ibg2" class="half-img" /> 
+    </div> 
+    <div class="ma xm" style="margin-top: -17%;"> 
+     <ul> 
+      <li class="l f36 b1"><?php echo $userpost['man']?></li> 
+      <li class="r f36 b1"><?php echo $userpost['woman']?></li> 
+     </ul> 
+    </div> 
+    <div class="ma rq f24">
+       <?php echo $userpost['inv_date']?>
+     <br /> 
+    </div> 
+    <div class="ma wz f24"> 
+     <a href="<?php echo $map?>"><span><?php echo $userpost['city']?>·<?php echo $userpost['location']?></span></a> 
+    </div> 
+    <div class="fingerprint clx" id="fingerhode"> 
+     <img class="half-img" src="/Public/Xt/Ofingerprint/images/fg.png" /> 
+    </div> 
+    <!--<div class="fixArr" id="fixArr"><img class="half-img"  src="/Public/Xt/Ofingerprint/images/jt.png?1=1" ></div>--> 
+   </div> 
+  </div>
+ </body>
+</html>

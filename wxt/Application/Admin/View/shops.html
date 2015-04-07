@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>WE喜帖</title>
+<link rel="shortcut icon" href="/Public/Home/favicon.ico" type="image/x-icon" />
+<link href="/Public/Shop/css/css.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Public/Shop/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="/Public/Shop/js/public.js"></script>
+<script>
+	var sd1=false;
+	function setstatus(v,id)
+	{
+		if(v==0)
+		{
+			 msgc('您确定要开通吗?','setstatus',"'1','"+id+"'");return;
+		}
+		if(sd1)
+		{
+			return ;	
+		}
+		sd1=true;
+		$.post("<?php echo APP_NAME?>/admin/shop/setstatus",{'id':id,'type':'ajax'},function(data){
+			if(data.status>0)
+			{
+				msg(data.msg,window.location.href);	
+			}
+			else
+			{
+				sd1=false;
+				msg(data.msg,'');	
+			}
+		},'json');
+			
+	}
+	var sd=false;
+	function del(v,id)
+	{
+		if(v==0)
+		{
+			 msgc('您确定要删除吗?','del',"'1','"+id+"'");return;
+		}
+		if(sd)
+		{
+			return ;	
+		}
+		sd=true;
+		$.post("<?php echo APP_NAME?>/admin/shop/del",{'id':id,'type':'ajax'},function(data){
+			if(data.status>0)
+			{
+				msg(data.msg,window.location.href);	
+			}
+			else
+			{
+				sd=false;
+				msg(data.msg,'');	
+			}
+		},'json');
+			
+	}
+
+
+        var sd2=false;
+	function disablestatus(v,id)
+	{
+		if(v==0)
+		{
+			 msgc('您确定要禁用吗?','disablestatus',"'1','"+id+"'");return;
+		}
+		if(sd2)
+		{
+			return ;	
+		}
+		sd2=true;
+		$.post("<?php echo APP_NAME?>/admin/shop/disablestatus",{'id':id,'type':'ajax'},function(data){
+			if(data.status>0)
+			{
+				msg(data.msg,window.location.href);	
+			}
+			else
+			{
+				sd1=false;
+				msg(data.msg,'');	
+			}
+		},'json');
+			
+	}
+</script>
+</head>
+<body>
+  <div id="top01">
+    <div id="topleft"><img src="/Public/Shop/images/logo02.png" /></div>
+    <div id="topright">
+		<table><tr>
+<td><a href="<?php echo APP_NAME?>/admin/index"  >首页</a></td>
+<td width="20px"></td><td><a href="<?php echo APP_NAME?>/admin/shop/glist" style="font-weight:bold" >商户管理</a></td>
+<td width="20px"></td><td><a href="<?php echo APP_NAME?>/admin/account/glist"   > 账务管理</a></td>
+</tr></table>
+    </div>
+  </div>
+  <div id="content01">
+    <table id="mscenter01" cellpadding="10" cellspacing="6" bgcolor="#CCCCCC" width="800px">
+      <tr><td bgcolor="#FFFFFF" align="center"><div style="width:90%; text-align:center; float:left">商户管理</div><div style="width:10%; text-align:right; float:left"><a href='<?php echo APP_NAME?>/admin/shop/add'><span style="color:red">新建帐号</span></a></div></td></tr>
+      <tr><td bgcolor="#ffffff" align="center">
+		
+        <table cellpadding="6" cellspacing="0"  >
+		 <tr>
+			<td align="center" style="border-bottom:dashed 1px #ccc">email</td>
+			<td width="25%" align="center" style="border-bottom:dashed 1px #ccc">添加时间</td>
+			<td align="center" style="border-bottom:dashed 1px #ccc">状态</td>
+			<td align="left" style="border-bottom:dashed 1px #ccc" colspan="2">操作</td>
+		</tr>
+                
+                <?php foreach($shops as $user):?>
+                        <?php if(!$user['status']):?>
+                            <tr>
+                                <td align="center" style="border-bottom:dashed 1px #ccc"><?php echo $user['email']?></td>
+                                <td align="center" style="border-bottom:dashed 1px #ccc"><?php echo $user['create_time']?></td>
+                                <td align="center" style="border-bottom:dashed 1px #ccc">未开通</td>
+                                
+                                <td align="left" style="border-bottom:dashed 1px #ccc"><a href='<?php echo APP_NAME?>/admin/shop/edit/id/<?php echo $user["id"]?>'>查看</a>
+                     | <a style="cursor:pointer;" href="javascript:setstatus(0,<?php echo $user['id']?>)" >开通帐号</a>
+                     | <a style="cursor:pointer;" href="javascript:del(0,<?php echo $user['id']?>)" >删除帐号</a> 
+                                </td>
+
+
+                          </tr>
+                        <?php else:?>
+                            <tr >
+                                <td align="center" style="border-bottom:dashed 1px #ccc"><?php echo $user['email']?></td>
+                                <td align="center" style="border-bottom:dashed 1px #ccc"><?php echo $user['create_time']?></td>
+                                <td align="center" style="border-bottom:dashed 1px #ccc">已开通</td>
+
+                                <td align="left" style="border-bottom:dashed 1px #ccc"><a href='<?php echo APP_NAME?>/admin/shop/edit/id/<?php echo $user["id"]?>'>查看</a>
+                    | <a style="cursor:pointer;" href="javascript:disablestatus(0,<?php echo $user['id']?>)" >禁用帐号</a>
+                                </td>
+
+
+                          </tr>
+                        <?php endif;?>
+                <?php endforeach;?>
+                
+                <tr>
+                    <td colspan="5" align="center">
+			<div class="page">
+                            <div> 
+                                <?php echo $page?>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+        </table>
+      </td></tr>
+    </table>
+  </div>
+  <div id="logout01">
+      <table cellpadding="0" cellspacing="0" id="mscenter01">
+          <tr>
+              <td >欢迎您，管理员</td>
+              <td width="6px"></td>
+              <td><a href='<?php echo APP_NAME?>/admin/index/login?act=y'><img src="/Public/Shop/images/logout.png" /></a></td>
+              <td width="6px"></td>
+              <td><a href='<?php echo APP_NAME?>/' target="_blank"><img src="/Public/Shop/images/zhizuo.png" /></a></td>
+          </tr>
+      </table>
+  </div>
+  <div id="footer02">Copyright 2014-2015 WE喜帖</div>
+</body>
+</html>

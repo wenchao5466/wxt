@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="utf-8" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+  <title>WE喜帖 - 微信里的个人婚礼主页</title> 
+  <meta name="description" content="一种可以用微信浏览和传播分享的婚礼个人主页，包含请柬邀请函、婚宴地址和地图导航，来宾签收回执和祝福，婚纱照浏览等功能" /> 
+  <meta name="keywords" content="WE喜帖_网络相册_微相册_婚纱照_请柬_邀请函" /> 
+   <link rel="shortcut icon" href="/Public/Home/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" type="text/css" href="/Public/Home/css/style.css" /> 
+  <meta name="viewport" content="width=device-width,initial-scale=1" /> 
+  <!-- CSS Reset --> 
+  <link rel="stylesheet" href="/Public/Home/css/reset.css" /> 
+  <!-- Styling for your grid blocks --> 
+  <link rel="stylesheet" href="/Public/Home/css/style1.css" /> 
+  <script src="/Public/Home/js/jquery-1.7.1.min.js"></script> 
+  <script src="/Public/Home/js/jquery.artDialog.js?skin=idialog"></script> 
+  <script type="text/javascript">
+function openWeixin(){
+	document.getElementById("weixinicon").style.display = "block";
+}
+function closeWeixin(){
+	document.getElementById("weixinicon").style.display = "none";
+}
+function viewcode(str, str2){
+	//var link = 'http://zfm2013.sinaapp.com/web.php?c=' + str;
+	var content = '<iframe width="300px" height="300px" frameborder="0" src="'+str+'"></iframe><br/>' + str2;
+	
+	openHelpDialog(content);
+}
+function openHelpDialog(content) {
+	art.dialog({
+		title: "扫一扫二维码",
+		fixed: true,  
+		resize: false,  
+		drag: false,  
+		lock: true,  
+		width: '400px',  
+		height: '400px',  
+		opacity:0.5,  
+		padding: 0,  
+		zIndex:200000000,  
+		content:content,  
+		close: false,
+	}).show;
+	return false;
+};
+</script> 
+ </head> 
+ <body> 
+  <div id="container"> 
+   <div class="top center"> 
+    <div class="center mainbox overHide"> 
+     <ul class="fr"> 
+      <span class="fl mr20"> 客服电话：010—58695950 </span> 
+      <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=1307568719&site=qq&menu=yes" class="fl qq overHide mr20"> qq </a> 
+      <a onmouseover="openWeixin()" class="fl weixin overHide"> 微信 </a> 
+      <div id="weixinicon" style=" z-index:10000;display:none;background-color:#FFF; position:absolute; left: 703px; top: 39px; width: 430px; height: 33px;">
+       <div style=" z-index:10000;background-color:#FFF;width:430px; text-align:right">
+        <a onclick="closeWeixin()">关闭</a>
+       </div>
+       <img src="/Public/Home/images/qrcode_for_gh_73c8c49f47df_430.jpg" /> 
+      </div> 
+     </ul> 
+    </div> 
+   </div> 
+   <div class="header"> 
+    <div class="headerBox overHide"> 
+     <div class="mainbox navBox  overHide center"> 
+      <h1 class="logo fl"> <img src="/Public/Home/images/logo.png" /> </h1> 
+      <div class="fr overHide nav"> 
+       <ul class="fl navL overHide "> 
+        <li class="fl"> <a href="/wxt"> 产品介绍 </a> </li> 
+        <li class="fl"> <a href="/wxt/home/shanghuguanli.html"> 商户代理 </a> </li> 
+        <li class="fl"> <a href="/wxt/home/wedding.html"> WE喜帖 </a> </li> 
+       </ul> 
+       <ul class="fl navR1" style="margin-top:18px;"> 
+        <li style="height:40px; font-size:18px; width:210px; line-height:40px; background-image:url(/Public/Home/images/u2.png);"> <a href="/wxt/member"> 制作我的喜帖</a> </li> 
+       </ul> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="bannerBox"> 
+     <div class="banner1 mainbox center txtCenter"> 
+      <img src="/Public/Home/images/banner.png" /> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="main" role="main"> 
+    <ul id="tiles"> 
+     <!-- These is where we place content loaded from the Wookmark API --> 
+    </ul> 
+    <div id="loader"> 
+     <div id="loaderCircle"></div> 
+    </div> 
+   </div> 
+   <footer> 
+   </footer> 
+   <div class="footer txtCenter"> 
+    <p> 一种可以用微信浏览和传播分享的婚礼个人主页，包含请柬邀请函、婚宴地址和地图导航，来宾签收回执和祝福，婚纱照浏览等功能 </p> 
+    <p> WE喜帖</p> 
+    <p> </p> 
+   </div> 
+  </div> 
+  <!-- include jQuery --> 
+  <!-- Include the plug-in --> 
+  <script src="/Public/Home/js/jquery.wookmark.js"></script> 
+  <!-- Once the page is loaded, initalize the plug-in. --> 
+  <script type="text/javascript">
+    var handler = null;
+    var page = 1;
+    var isLoading = false;
+    var apiURL = '/wxt/home/wedding/ajaxgetcontent'
+    
+    
+    // Prepare layout options.
+    var options = {
+      autoResize: true, // This will auto-update the layout when the browser window is resized.
+      container: $('#tiles'), // Optional, used for some extra CSS styling
+      offset: 2, // Optional, the distance between grid items
+      itemWidth: 260 // Optional, the width of a grid item
+    };
+    
+    /**
+     * When scrolled all the way to the bottom, add more tiles.
+     */
+    function onScroll(event) {
+      // Only check when we're not still waiting for data.
+      if(!isLoading) {
+        // Check if we're within 100 pixels of the bottom edge of the broser window.
+        var closeToBottom = ($(window).scrollTop() + $(window).height() > $(document).height() - 100);
+        if(closeToBottom) {
+          loadData();
+        }
+      }
+    };
+    
+    /**
+     * Refreshes the layout.
+     */
+    function applyLayout() {
+      // Clear our previous layout handler.
+      if(handler) handler.wookmarkClear();
+      
+      // Create a new layout handler.
+      handler = $('#tiles li');
+      handler.wookmark(options);
+    };
+    
+    /**
+     * Loads data from the API.
+     */
+    function loadData() {
+		
+      isLoading = true;
+      $('#loaderCircle').show();
+     
+      $.ajax({
+        url: apiURL,
+        dataType: 'json',
+        data: {p: page}, // Page parameter to make sure we load new data
+        success: onLoadData,
+		error:err
+      });
+    };
+	function err(e)
+	{
+		//alert(e);	
+		loadData();
+	}
+    
+    /**
+     * Receives data from the API, creates HTML for images and updates the layout
+     */
+    function onLoadData(data) {
+		
+		
+	
+      isLoading = false;
+      $('#loaderCircle').hide();
+      
+      // Increment page index for future calls.
+      page++;
+      
+      // Create HTML for the images.
+      var html = '';
+      var i=0, length=data.length, image;
+      for(; i<length; i++) {
+        image = data[i];
+		str = image.m_inv_boy + '和' + image.m_inv_girl + '@' + image.m_inv_date;
+        html += '<li onclick="viewcode(\'' + image.viewcode  + '\', \'' + str + '\')" >';
+        
+        // Image tag (preview in Wookmark are 200px wide, so we calculate the height based on that).
+        html += '<img src="'+image.p_link+'" width="250" height="'+Math.round(image.p_height/image.p_width*250)+'">';
+        
+        // Image title.
+        html += '<p>'+str+'</p>';
+        
+        html += '</li>';
+      }
+      
+      // Add image HTML to the page.
+      $('#tiles').append(html);
+      
+      // Apply layout.
+      applyLayout();
+    };
+  
+    $(document).ready(new function() {
+      // Capture scroll event.
+      $(document).bind('scroll', onScroll);
+      
+      // Load first data from the API.
+      loadData();
+    });
+    
+      
+  </script>  
+  <div style="display: none"> 
+    
+  </div> 
+ </body>
+</html>

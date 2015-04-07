@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="utf-8" /> 
+  <title>WE喜帖新用户注册</title> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" /> 
+  <style>
+        #main {
+            position: absolute;
+            width:400px;
+            height:200px;
+            left:50%;
+            top:50%; 
+             margin-left:-100px;
+             margin-top:-100px;
+             /*border:1px solid #00F*/
+        } 
+       
+    </style>  
+ </head> 
+ <body style="background-color: rgb(248, 242, 242);">
+      <div id="main">
+          <input  id="mobile" name="mobile"  placeholder="请输入礼品卡号" type="text" style="height: 40px;font-size: 16px;"/>
+          <br/>
+          <input type="button" value="验证" onclick="send();"/>
+      </div> 
+     
+     
+     <script src="/Public/Xt/Bluefingerprint/js/jquery-1.8.2.min.js"></script> 
+     <script>
+         $(document).ready(function() {
+
+          });
+          
+         function send(){
+                   alert('您输入的礼品卡号无效或过期')
+         }
+     </script>
+ </body>
+</html> 

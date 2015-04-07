@@ -1,0 +1,335 @@
+<html>
+    <head>
+
+        <style type="text/css">
+.mbg {
+        -moz-background-size: contain;
+        -webkit-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+        }
+        .tagbg1 {
+        background-image: url(/Public/Xt/Default/images/msgbg.jpg);
+        background-repeat: repeat-x;
+        width: 100%;
+        padding-top: 2.5%;
+        overflow: hidden;
+        }
+        .tagbgxz {
+        background-image: url(/Public/Xt/Default/images/msgbg1.png);
+        background-repeat: repeat-x;
+        background-position: center bottom;
+        }
+        .msgbg2 {
+        margin: 1% 0 1% 0;
+        background-image: url(/Public/Xt/Default/images/msgbg2.jpg);
+        background-repeat: repeat-x;
+        width: 100%;
+        overflow: hidden;
+        padding: 3% 0 3% 0;
+        }
+        .msgbg3 {
+        background-image: url(/Public/Xt/Default/images/msgbg3.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100%;
+        overflow: hidden;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="main" class="ma main l_main">
+            <div class="l_c ma">
+                <ul>
+                    <li class="left">
+                        <a onclick="load_index()" rel="address:i10"><img src="/Public/Xt/Default/images/h_1.jpg" class="half-img"></a>
+                    </li>
+                    <li class="right f40">送祝福
+                    </li>
+                </ul>
+            </div>
+            <div class="l_zf ma">
+                <div class="ma">
+                    <script type="text/javascript">
+            function cklw(id,i)
+                                {
+                                    $('#zf_giftid').val(id);
+                                    // setTimeout(function(){openlw();},100);
+                                    $('.bplist li').each(function(i){
+                                        $('.lwtgt_'+i).css({'display':'none'}); 
+                                    });
+                                    $('.lwtgt_'+i).css({'display':'block'});    
+                                }
+                                function tag(v)
+                                {
+                                
+                                    if(v==1)
+                                    {
+                                        $('#tag2').removeClass('tagbgxz').css({'color':'#9b9b9b'});
+                                        $('#tag1').addClass('tagbgxz').css({'color':'#6dd7c9'});
+                                        
+                                        $('#tag2_1').css({'display':'none'})
+                                        $('#tag1_1').css({'display':'block'})
+                                        
+                                    }
+                                    else
+                                    {
+                                        $('#tag1').removeClass('tagbgxz').css({'color':'#9b9b9b'});
+                                        $('#tag2').addClass('tagbgxz').css({'color':'#6dd7c9'});
+                                        $('#tag1_1').css({'display':'none'})
+                                        $('#tag2_1').css({'display':'block'})
+                                    }
+                                        
+                                }
+                    </script>
+                    <div class="mbg tagbg1">
+                        <div class="f36 mbg tagbgxz" id="tag1" onclick="tag(1)" style="width:50%;padding-bottom:2.5%;float:left; color:#6dd7c9; text-align:center;">
+                            祝福
+                        </div>
+                        <div class="f36 mbg" id="tag2" onclick="tag(2)" style="width:50%;padding-bottom:2.5%;float:right;color:#9b9b9b; text-align:center">
+                            红包<img src="/Public/Xt/Default/images/tb.png" style="width:3.8%; margin-bottom:8%; margin-left:1%;">
+                        </div>
+                    </div>
+                    <div class="mbg msgbg2" id="tag1_1">
+                        <div class="ma mbg msgbg3" style="width:90%;">
+                            <div style="width:100%; overflow:hidden;">
+                                <div style="float:left; width:24.6%; padding-top:3%; padding-bottom:3%; text-align:center;">
+                                    <input name="" id="zf_name" onblur="javascript:this.style.color='#dddddd'" style="width:90%; margin-top:2%;color:#dddddd;border:#fff 1px solid; text-align:center;" onclick="javascript:this.style.color='#000000'" value="" class="ma f24" type="text">
+                                </div>
+                                <div class="mbg" style="float:left; width:10%; background-image:url(/Public/Xt/Default/images/msgbg4.jpg); margin-top:2.4%; padding-top:4%; background-repeat:no-repeat;">
+                                    &nbsp;
+                                </div>
+                                <div style="float:left; width:64%;padding-top:3%;">
+                                    <textarea rows="1" id="zf_msg" class="f24" style="width:100%;margin-top:1%; color:#000;border:#fff 1px solid; text-align:left; color:#dddddd;" onblur="javascript:this.style.color='#dddddd'" onclick="javascript:this.style.color='#000';if(this.value=='留下你的祝福...'){this.value='';}">留下你的祝福...</textarea> <input name="zf_giftid" id="zf_giftid" type="hidden" value="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div style="width:100%; overflow:hidden; margin-top:2%;">
+                            <div style="float:left; margin-left:5.4%; width:9%">
+                                <img src="/Public/Xt/Default/images/nbq.png" onclick="javascript:setTimeout(function(){openbq();},100);" id="bqbtu" class="half-img" name="bqbtu">
+                            </div>
+                            <div style="float:left; margin-left:5%; width:26.4%">
+                                <img src="/Public/Xt/Default/images/nlw.png?2014" onclick="javascript:setTimeout(function(){openlw();},100);" id="lwbtu" class="half-img" name="lwbtu">
+                            </div>
+                            <div style="float:right; margin-right:5.2%; width:20%">
+                                <img src="/Public/Xt/Default/images/nfs.png" onclick="sendzf(0)" class="half-img">
+                            </div>
+                        </div>
+                        <div class="bq" id="obq">
+                            <img src="/Public/Xt/Default/images/bq1.png" border="0" usemap="#biaoqing" class="half-img"> <map name="biaoqing" id="biaoqing">
+                                <area shape="rect" coords="14,39,125,73" onclick="javascript:xzbq('o(≧v≦)o~')">
+                                <area shape="rect" coords="149,45,265,74" onclick="javascript:xzbq('O(∩_∩)O~')">
+                                <area shape="rect" coords="301,40,396,73" onclick="javascript:xzbq('(*^◎^*)')">
+                                <area shape="rect" coords="426,40,556,73" onclick="javascript:xzbq('(&gt;^ω^&lt;)喵')">
+                                <area shape="rect" coords="25,119,109,158" onclick="javascript:xzbq('(ˉ(∞)ˉ)')">
+                                <area shape="rect" coords="147,115,269,157" onclick="javascript:xzbq('↖(^ω^)↗')">
+                                <area shape="rect" coords="288,117,415,155" onclick="javascript:xzbq('~(@^_^@)~ ')">
+                                <area shape="rect" coords="430,115,546,155" onclick="javascript:xzbq('~\(≧▽≦)/~')">
+                                <area shape="rect" coords="13,200,133,237" onclick="javascript:xzbq('(*^__^*) 嘻嘻')">
+                                <area shape="rect" coords="152,204,273,236" onclick="javascript:xzbq('( ⊙ o ⊙ )啊！')">
+                                <area shape="rect" coords="289,204,403,235" onclick="javascript:xzbq('~\ ( ^_^ )/~')">
+                                <area shape="rect" coords="434,202,534,236" onclick="javascript:xzbq('(*@ο@*) 哇～')" s="">
+                            </map>
+                        </div>
+                        <div class="bq" id="olw">
+                            <div>
+                                <img src="/Public/Xt/Default/images/lwtop.png" border="0" class="half-img">
+                            </div>
+                            <div style="padding:0 1px 0 1px;background-color:#9b9b9b;overflow:hidden;">
+                                <ul class="bplist">
+                                    <li style="width:33.3%; padding:5% 0 5% 0;float:left; text-align:center; border-bottom:1px solid #bcbcbc;border-right:1px solid #bcbcbc;">
+                                        <div class="lwtgt_0" style="position:absolute; padding:0;display:none; width:31.8%;">
+                                            <img src="/Public/Xt/Default/images/lwbg1.png?201406" border="0" style="width:61.85%" class="half-img">
+                                        </div><img src="/Public/Xt/Default/lw/5-1.jpg" onclick="cklw('6','0')" border="0" style="width:61.7%" class="half-img">
+                                    </li>
+                                    <li style="width:33.3%; padding:5% 0 5% 0;float:left; text-align:center; border-bottom:1px solid #bcbcbc;border-right:1px solid #bcbcbc;">
+                                        <div class="lwtgt_1" style="position:absolute; padding:0;display:none; width:31.8%;">
+                                            <img src="/Public/Xt/Default/images/lwbg1.png?201406" border="0" style="width:61.85%" class="half-img">
+                                        </div><img src="/Public/Xt/Default/lw/4-1.jpg" onclick="cklw('5','1')" border="0" style="width:61.7%" class="half-img">
+                                    </li>
+                                    <li style="width:33.2%; padding:5% 0 5% 0; float:left; text-align:center;border-bottom:1px solid #bcbcbc;">
+                                        <div class="lwtgt_2" style="position:absolute; padding:0; display:none; margin-left:6.1%;width:19.8%; overflow:hidden;">
+                                            <img src="/Public/Xt/Default/images/lwbg1.png?20140608" border="0" class="half-img">
+                                        </div><img src="/Public/Xt/Default/lw/3-1.jpg" onclick="cklw('4','2')" border="0" style="width:61.7%" class="half-img">
+                                    </li>
+                                    <li style="width:33.3%; padding:5% 0 5% 0;float:left; text-align:center; border-bottom:1px solid #bcbcbc;border-right:1px solid #bcbcbc;">
+                                        <div class="lwtgt_3" style="position:absolute; padding:0;display:none; width:31.8%;">
+                                            <img src="/Public/Xt/Default/images/lwbg1.png?201406" border="0" style="width:61.85%" class="half-img">
+                                        </div><img src="/Public/Xt/Default/lw/2-1.jpg" onclick="cklw('3','3')" border="0" style="width:61.7%" class="half-img">
+                                    </li>
+                                    <li style="width:33.3%; padding:5% 0 5% 0;float:left; text-align:center; border-bottom:1px solid #bcbcbc;border-right:1px solid #bcbcbc;">
+                                        <div class="lwtgt_4" style="position:absolute; padding:0;display:none; width:31.8%;">
+                                            <img src="/Public/Xt/Default/images/lwbg1.png?201406" border="0" style="width:61.85%" class="half-img">
+                                        </div><img src="/Public/Xt/Default/lw/1-1.jpg" onclick="cklw('1','4')" border="0" style="width:61.7%" class="half-img">
+                                    </li>
+                                    <li style="width:33.2%; padding:5% 0 5% 0; float:left; text-align:center;border-bottom:1px solid #bcbcbc;">
+                                        <div class="lwtgt_5" style="position:absolute; padding:0; display:none; margin-left:6.1%;width:19.8%; overflow:hidden;">
+                                            <img src="/Public/Xt/Default/images/lwbg1.png?20140608" border="0" class="half-img">
+                                        </div><img src="/Public/Xt/Default/lw/0-1.jpg" onclick="cklw('2','5')" border="0" style="width:61.7%" class="half-img">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div style="padding:2% 0 2% 0;background-color:#9b9b9b; text-align:center;">
+                                <img src="/Public/Xt/Default/images/b.jpg" border="0" style="width:4%" class="half-img">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mbg" id="tag2_1" style="overflow:hidden; display:none; margin:1% 0 1% 0; border-bottom:1px solid #dddddd;border-top:1px solid #dddddd; background-image:url(/Public/Xt/Default/images/hbbg.png);">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td class="f31" onclick="javascript:window.location.href='https://wxapp.tenpay.com/v2/hybrid/www/weixin/hongbao/index.shtml?showwxpaytitle=1&amp;channel=wxhb';" style="color:#656565; padding:2% 0 1%" align="center">
+                                    送红包 &gt;
+                                </td>
+                                <td width="1" rowspan="2" align="center" bgcolor="#DDDDDD"></td>
+                                <td class="f31" onclick="javascript:window.location.href='https://wxapp.tenpay.com/v2/hybrid/www/weixin/hongbao/index.shtml?showwxpaytitle=1&amp;channel=wxhb';" style="color:#656565; padding:2% 0 1%" align="center">
+                                    <span style="color:#F00; float:left; font-size:8px; margin-left:6%;">NEW</span>抢红包 &gt;<span style="float:right; margin-right:5%;">&nbsp;&nbsp;</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="f24" onclick="javascript:window.location.href='https://wxapp.tenpay.com/v2/hybrid/www/weixin/hongbao/index.shtml?showwxpaytitle=1&amp;channel=wxhb';" style="color:#9b9b9b;padding:1% 0 2%" align="center">
+                                    使用微信红包给新人送红包
+                                </td>
+                                <td class="f24" style="color:#9b9b9b;padding:1% 0 2%" onclick="javascript:window.location.href='https://wxapp.tenpay.com/v2/hybrid/www/weixin/hongbao/index.shtml?showwxpaytitle=1&amp;channel=wxhb'" align="center">
+                                    抢新人红包 由WE喜帖提供
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="l_zf ma">
+                <div class="my ma">
+                    <ul>
+                        <li class="left">
+                            <img src="/Public/Xt/Default/images/zf.jpg" class="half-img">
+                        </li>
+                        <li class="right f24">大家的祝福
+                        </li>
+                    </ul>
+                </div>
+                <div style="overflow:hidden" class="list" id="loadmsglist">
+                    
+                    <?php foreach($messages as $message):?>
+                    <div style="background-color:#f1f1f1; clear:both; overflow:hidden;">
+                        <ul>
+                            <li style="width:13.6%; font-size:0px; float:left;">
+                                <img src="/Public/Xt/Default/images/nan.png" class="half-img">
+                            </li>
+                            <li style="width:85.5%; padding-top:4%; float:left;">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <!--<td width="12%">
+                                            <img src="http://wx.qlogo.cn/mmopen/9eMOrlj86xb1cUO2hNQNOmZUmV8HEqLiaXXAsl2ibdxOibVLicpC7jGIm5DVDGavlpINTbQWMpqNjaa3FoNt9e9Ir3TsvwicApiaica/0" style="border:1px solid #dddddd;display: none;" class="full-img" >
+                                        </td>-->
+                                        <td width="23%" align="center">
+                                            <div style=" color:#596c8c; font-weight:bold;" class="f22">
+                                                <?php echo $message['name']?>
+                                            </div>
+                                        </td>
+                                        <td width="65%" style="word-break:break-all">
+                                            <div style=" color:#4d4d4d;word-break:break-all" class="f22">
+                                                <?php echo $message['description']?>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" style="padding-top:1%;">
+                                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td width="60%">
+                                                        <div style=" color:#9b9b9b" class="f20">
+                                                            <?php echo $message['create_time']?>
+                                                        </div>
+                                                    </td>
+                                                    <?php  $display = $message['photo'] && $message['photo']!='0' ? '' : 'display:none;';?>
+                                                    <td width="20%" style="<?php echo $display?>">
+                                                        <a style="color:#4d4d4d;" class="f20" href="/wxt/xt/gift/index/id/<?php echo $message['id']?>.html">查看礼物</a> 
+                                                        <div style=" color:#4d4d4d;" class="f20"></div>
+                                                    </td> 
+                                                    <td width="20%" style="<?php echo $display?>">
+                                                        <div style="position:absolute; width:6%; margin-top:-2.2%;">
+                                                         <a style="color:#4d4d4d;" class="f20" href="/wxt/xt/gift/index/id/<?php echo $message['id']?>.html"><img src="/Public/Xt/Default/images/lw.png" class="half-img" /></a>
+                                                        </div>
+                                                    </td> 
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </li>
+                        </ul>
+                    </div>
+                     <?php endforeach;?>
+                    
+                    
+                    <!--<div style="background-color:#f1f1f1; clear:both; overflow:hidden;">
+                        <ul>
+                            <li style="width:13.6%; font-size:0px; float:left;">
+                                <img src="/Public/Xt/Default/images/nv.png" class="half-img">
+                            </li>
+                            <li style="width:85.5%; padding-top:4%; float:left;">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td width="12%">
+                                            <img src="http://wx.qlogo.cn/mmopen/9eMOrlj86xYxovn8hJvz349pxkemLM31AwAzSEeCSnBZNfsQw8ThqnUtpDtJBFbDmwtibU43Xmp382UGPicBknsDLUZIL3yYb8/0" style="border:1px solid #dddddd" class="full-img">
+                                        </td>
+                                        <td width="23%" align="center">
+                                            <div style=" color:#596c8c; font-weight:bold;" class="f22">
+                                                紫色水晶
+                                            </div>
+                                        </td>
+                                        <td width="65%" style="word-break:break-all">
+                                            <div style=" color:#4d4d4d;word-break:break-all" class="f22">
+                                                虽然不认识，但真心祝福你们幸福到永远！
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" style="padding-top:1%;">
+                                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td width="60%">
+                                                        <div style=" color:#9b9b9b" class="f20">
+                                                            2014-12-14 19:12
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </li>
+                        </ul>
+                    </div>-->
+                    <input name="pagecount" id="pagecount" type="hidden" value="6">
+                </div>
+                <div style="background-color:#f1f1f1; padding-top:10%; clear:both; overflow:hidden;display: none;">
+                    <div id="ckgd" class="h_ck ma f24" >
+                        没有了哦...
+                    </div>
+                </div>
+            </div>
+        </div><script type="text/javascript">
+$(document).scroll(function(){
+        if($.trim($('#loadmsglist').html())==''){return ;}
+
+        var wh=$(window).height();
+        if($(document).scrollTop()+wh>=$(document).height())
+        {
+            //load_msg(1);
+        }
+
+        if($(document).scrollTop()>wh)
+        {
+         load_t(1,wh)
+        }
+        else
+        {
+         load_t(0,wh)   
+        }
+        });
+
+        </script>
+    </body>
+</html>

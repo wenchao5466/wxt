@@ -1,0 +1,367 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>WE喜帖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<style>
+html{font-size: 62.5%; }
+body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,th,td,form,fieldset,legend,input,textarea,button,select {
+	margin:0;
+	padding:0;
+}
+body {
+	min-width:320px;
+	font-family:'microsoft yahei',Verdana,Arial,Helvetica,sans-serif;
+	color:#000;
+	-webkit-text-size-adjust:none;
+	max-width:640px;
+}
+img,fieldset {
+	border:0;
+}
+ul,ol {
+	list-style:none;
+}
+em,address {
+	font-style:normal
+}
+a {
+	color:#000;
+	text-decoration:none;
+}
+
+* {
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	box-sizing:border-box;
+}
+.half-img {
+	width:100%;
+	height:auto!important;
+	overflow:hidden;
+}
+.full-img {
+	width:100%;
+	
+	height:auto!important
+}
+.main{
+	width:100%;
+	max-width:640px;
+	
+}
+.ma{margin:0 auto;}
+.page{
+	max-width:640px;
+}
+.top{
+	background-image:url(/Public/Xt/Gift/images/topbg.jpg);
+	background-repeat:no-repeat;
+	color:#ffc98b;
+	text-align:center;
+	padding:2.8% 0 5%;
+}
+.msg{
+	max-width:600px;
+	width:93.8%;
+	overflow:hidden;
+	padding-left:3%;
+	
+}
+.lw{
+	max-width:600px;
+	width:93.8%;
+	overflow:hidden;
+	margin-top:2.5%;
+}
+.msg .tx{
+	float:left;margin-top:5%; max-width:60px; width:9.7%;
+}
+.msg .msg1{
+	overflow:hidden;
+	margin:3% 0 0 1%;  background-color:#fff; float:left; width:83%;
+	background-image:url(/Public/Xt/Gift/images/msgbg.jpg);
+	background-repeat:no-repeat;
+	-moz-background-size:cover;
+    -webkit-background-size:cover;
+    -o-background-size:cover;
+    background-size:cover;
+	
+}
+.msg .msg1 .text{
+	padding:5% 5% 1% 8%;
+	color:#9b9b9b;
+}
+.zfz{
+	max-width:600px;
+	width:93.8%;
+	overflow:hidden;
+	margin-top:6%;
+}
+.zfz .zan{
+	max-width:140px;
+	background-image:url(/Public/Xt/Gift/images/zbg.jpg);
+	width:25%;
+	background-repeat:no-repeat;
+	-moz-background-size:contain;
+    -webkit-background-size:contain;
+    -o-background-size:contain;
+    background-size:contain;
+	text-align:center;
+	padding:2% 1% 2.3% 1%;
+	margin-left:15%;
+	float:left;
+}
+.zfz .zfgpy{
+	width:43.3%;
+	float:right;
+	margin-right:15%;
+	background-image:url(/Public/Xt/Gift/images/zfgpy.jpg);
+	background-repeat:no-repeat;
+	-moz-background-size:contain;
+    -webkit-background-size:contain;
+    -o-background-size:contain;
+    background-size:contain;
+	text-align:center;
+	padding:3% 1% 4% 6%;
+	
+}
+.zanzhu
+{
+	margin:6% 0 5%;
+	text-align:center;
+	color:#9b9b9b;
+}
+
+
+@media screen and (min-width:320px) {
+	.f50{font-size:2.5rem;}
+	.f40{font-size:2rem;} 
+	.f36{font-size:1.8rem;}
+	.f31{font-size:1.593rem;} 
+	.f26{font-size:1.25rem;}
+	.f24{font-size:1.2rem;} 
+	.f22{font-size:1.1rem;}
+	.f20{font-size:1rem;}
+}
+@media screen and (min-width:360px) {
+	.f50{font-size:2.812rem;}
+	.f40{font-size:2.25rem;} 
+	.f36{font-size:2.025rem;} 
+	.f31{font-size:1.793rem;} 
+	.f26{font-size:1.406rem;}
+	.f24{font-size:1.35rem;} 
+	.f22{font-size:1.238rem;}
+	.f20{font-size:1.125rem;}
+
+}
+@media screen and (min-width:384px) {
+	.f50{font-size:3.002rem;}
+	.f40{font-size:2.4rem;} 
+	.f36{font-size:2.161rem;} 
+	.f31{font-size:1.913rem;} 
+	.f26{font-size:1.501rem;}
+	.f24{font-size:1.44rem;} 
+	.f22{font-size:1.32rem;}
+	.f20{font-size:1.2rem;}
+}
+@media screen and (min-width:480px) {
+	.f50{font-size:3.75rem;}
+	.f40{font-size:3rem;} 
+	.f36{font-size:2.7rem;} 
+	.f31{font-size:2.39rem;} 
+	.f26{font-size:1.875rem;}
+	.f24{font-size:1.8rem;} 
+	.f22{font-size:1.65rem;}
+	.f20{font-size:1.5rem;}
+}
+@media screen and (min-width:540px) {
+	.f50{font-size:4.221rem;}
+	.f40{font-size:3.376rem;} 
+	.f36{font-size:3.039rem;} 
+	.f31{font-size:2.69rem;} 
+	.f26{font-size:2.11rem;}
+	.f24{font-size:2.026rem;} 
+	.f22{font-size:1.857rem;}
+	.f20{font-size:1.688rem;}
+}
+@media screen and (min-width:640px) {
+	.f50{font-size:5rem;} 
+	.f40{font-size:4rem;} 
+	.f36{font-size:3.6rem;} 
+	.f31{font-size:3.1rem;} 
+	.f26{font-size:2.6rem;}
+	.f24{font-size:2.4rem;}
+	.f22{font-size:2.2rem;}
+	.f20{font-size:2rem;}
+}
+</style>
+</head>
+<body>
+<div class="page">
+	<div class="top">
+    	<span class="f31"><?php echo $message['name']?>送给你的结婚礼物</span>
+    </div>
+    <div class="msg ma">
+         <div class="tx">
+                 <img src="http://wx.qlogo.cn/mmopen/PiajxSqBRaEKlxtiaezcVafROCohKXIxeb1F80lc22wicRdLRSV9kehAKJdkTbc8c2Bdapt0QGAlRydvJiafhXW1rg/0" class="full-img">
+          </div>
+<div class="msg1">
+          	<div class="text f24"><?php echo $message['description']?>：</div>
+            <div style="font-size:0px;"><img src="/Public/Xt/Gift/images/msgbg1.jpg" class="full-img"></div>
+          </div>
+    </div>
+    <div class="lw ma">
+    	<img src="<?php echo $message['img']?>" class="full-img">
+    </div>
+    <div class="zfz ma">
+    	 <div class="zan" onClick="setzan()">
+        		<img src="/Public/Xt/Gift/images/zanx.jpg"  style="width:26%;" class="full-img ma"> <span id="zant" class="f31" style=" margin-left:1%; color:#9b9b9b"><?php echo $message['zcount']?></span>
+         </div>
+         <div class="zfgpy"  onClick="openShareDiv('share_div')">
+        	 <span class="f26"  style=" margin-left:5%; color:#9b9b9b">转发给朋友</span>
+         </div>
+    </div>
+     <div class="zanzhu ma f24">
+     	        <a href="http://2000026609.zhan.qq.com/mobile/index.html">本礼品有WE喜帖提供赞助 查看详情 > </a> 
+            </div>
+</div>
+<div id="share_div" style=" display:none; position:absolute; left: 0px; top: 0px; width: 100%; z-index:9999; background-image:url(/Public/Xt/Default/images/bgcolor4.png); background-repeat:repeat;">
+<div style=" position:absolute; top:10px; right:30px; "><img src="/Public/Xt/Default/images/arrow1.png" /></div>
+<div style=" position:absolute; top:10px; left:10px;"><a onClick="closeShareDiv('share_div')"><img src="/Public/Xt/Default/images/close.png" /></a></div>
+</div>
+</body>
+
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+wx.config({
+    debug: false,
+    //appId: 'wx19966cf05ec0162e',
+    //timestamp: 1421832403,
+    //nonceStr: '0fcd3199a4986cfc8abf867ca511694c',
+    //signature: 'a1805d8b36c1efc73246ccf273738b8a63193580',
+    jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage']
+});
+wx.ready(function(){
+	
+	wx.onMenuShareTimeline({
+	    title: "<?php echo $message['name']?>给你的结婚礼物",
+	    link: window.location.href,
+	    imgUrl: "<?php echo $message['img']?>",
+	    success: function () { 
+	        // alert("success");
+	    },
+	    cancel: function () { 
+	        // alert("cancel");
+	    }
+      });
+    wx.onMenuShareAppMessage({
+	    title: "<?php echo $message['name']?>送给你的结婚礼物",
+            desc: "<?php echo $message['name']?>送给你的结婚礼物◢", 
+
+	    link: window.location.href,
+	    imgUrl: "<?php echo $message['img']?>",
+        
+        success: function(){},
+        cancel: function(){}
+    });
+
+});
+wx.error(function(res){
+	// alert("error");
+});
+</script>
+
+<script src="/Public/Xt/Gift/js/jquery-1.8.2.min.js"></script>
+<script src="/Public/Xt/Gift/js/public.js"></script>
+<script>
+function setzan()
+{
+	$.get('/wxt/xt/gift/setzan?id=<?php echo $message["id"]?>&n='+Math.random(),function (data){
+		if(data.status==1)
+		{
+			$('#zant').html(Number($('#zant').html())+1);	
+		}
+		
+	},'json');	
+}
+function getScrollTop(){
+    var scrollTop=0;
+    if(document.documentElement&&document.documentElement.scrollTop){
+        scrollTop=document.documentElement.scrollTop;
+    }else if(document.body){
+        scrollTop=document.body.scrollTop;
+    }
+    return scrollTop;
+}
+/********************
+ * 取窗口可视范围的高度 
+ *******************/
+function getClientHeight(){
+    var clientHeight=0;
+    if(document.body.clientHeight&&document.documentElement.clientHeight)
+    {
+        var clientHeight = (document.body.clientHeight<document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;        
+    }else{
+        var clientHeight = (document.body.clientHeight>document.documentElement.clientHeight)?document.body.clientHeight:document.documentElement.clientHeight;    
+    }
+    return clientHeight;
+}
+/********************
+ * 取文档内容实际高度 
+ *******************/
+function getScrollHeight(){
+    return Math.max(document.body.scrollHeight,document.documentElement.scrollHeight);
+}
+
+function openShareDiv(id){
+	$(document).scrollTop(0); 
+	//document.getElementById(id).style.top = getScrollTop() + "px";
+	document.getElementById(id).style.height = getScrollHeight() + "px";
+	//document.body.style.overflow = "hidden";
+	document.getElementById(id).style.display = "block";
+	
+}
+function closeShareDiv(id){
+	document.body.style.overflow = "auto";
+	
+	document.getElementById(id).style.display = "none";
+	$(document).scrollTop(600); 
+}
+var contentModel = {
+    "img_url": "<?php echo $message['img']?>", 
+    "img_width": "", 
+    "img_height": "", 
+    "link": window.location.href, 
+    "desc": "<?php echo $message['name']?>送给你的结婚礼物",
+    "title": "<?php echo $message['name']?>送给你的结婚礼物",
+    "src": "<?php echo $message['name']?>送给你的结婚礼物◢" 
+};
+//实验muin
+var muinObj = {"allUser":1};
+</script>
+<script language="JavaScript" src="http://mat1.gtimg.com/www/js/newsapp/wechat/wechat20130619_min.js" type="text/javascript" charset="utf-8"></script>
+<script>
+function onBridgeReady(){
+     document.addEventListener('WeixinJSBridgeReady', function onBridgeReady()     
+{  WeixinJSBridge.call('hideToolbar');
+ });
+}
+
+if (typeof WeixinJSBridge == "undefined"){
+    if( document.addEventListener ){
+        document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+    }else if (document.attachEvent){
+        document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
+        document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+    }
+}else{
+    onBridgeReady();
+}
+
+</script>
+</html>

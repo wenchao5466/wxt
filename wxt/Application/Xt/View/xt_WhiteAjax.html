@@ -1,0 +1,98 @@
+<style>
+.dhbg_1
+{
+	-moz-background-size:contain;
+	-webkit-background-size:contain;
+	-o-background-size:contain;
+	background-size:contain;
+	background-repeat:no-repeat;
+}
+a.dh_1{
+	background-image:url(/Public/Xt/Default/images/szf1.png?n=20140622);
+	margin-left:25%;
+}
+a.dh_1:active{
+	background-image:url(/Public/Xt/Default/images/szf1-1.png?n=2014062201);
+}
+a.dh_2{
+	background-image:url(/Public/Xt/Default/images/yqh21.png?n=2014062201);
+	margin-left:30.3%;
+}
+a.dh_2:active{
+	background-image:url(/Public/Xt/Default/images/yqh21-1.png?n=2014062201);
+}
+a.dh_3{
+	background-image:url(/Public/Xt/Default/images/hsz1.png?n=2014062201);
+	margin-left:28%;
+}
+a.dh_3:active{
+	background-image:url(/Public/Xt/Default/images/hsz1-1.png?n=2014062201);
+}
+</style>
+<div id="main" name='ihd' class="ma main imain" style="min-height:250px;"    >
+        <div class="ma fm">
+        <div class="fc_left" >
+            <img src="/Public/Xt/White/images/i_fc.png" class="half-img" > </div>
+        <div  class="fc_right">
+            <img src="/Public/Xt/White/images/i_fc2.png"  class="half-img" > </div>
+            <img src="<?php echo $userpost['photo']?>" id="banner" style="width:92.9%;max-width:592px; margin-top:3%; border:#e6e6e6 solid 5px" class="half-img" >
+        </div>
+        <div class="ma xm">
+        	<ul>
+            	<li class="l f50"><?php echo $userpost['man']?></li>
+                <li class="c"><img  class="half-img" onClick="ceshi()"  src="/Public/Xt/White/images/i_x.png"></li>
+                <li class="r f50"><?php echo $userpost['woman']?></li>
+            </ul>
+        </div>
+        <div class="ma cy f36">
+        	诚挚邀请
+        </div>
+       
+  <div class="ma rq f24">
+        	<?php echo $userpost['inv_date']?>&nbsp;<?php echo $userpost['inv_time_1']?>时<?php echo $userpost['inv_time_2']?>分<br>
+    </div>
+     <div class="ma wz f24">
+   		
+        
+        <span>
+         <a href="<?php echo $map?>">
+             <img class="half-img"  src="/Public/Xt/White/images/i_wz.png" >
+         </a>
+         </span>
+         <a href="<?php echo $map?>"><span style="color:#01bcbb"><?php echo $userpost['city']?>·<?php echo $userpost['location']?> > </span></a>
+         
+    </div>
+ 
+ <div id="dbdh" style="overflow:hidden; margin-top:5%; width:100%;max-width:640px;" >
+       <div  style="position:absolute; font-size:0px; z-index:3; width:100%;" id="dbdh1">
+<img  src="/Public/Xt/White/images/tm.png" style="width:100%" /></div>
+            <div class="ma dh1" style="max-width:640px;overflow:hidden; text-align:center;  ">
+                 <li style="width:33.3%; margin-top:8.8%; margin-bottom:1.5%; padding-left:10%; float:left;">
+              	 <a href="javascript:load_msg(0)" class="dh_1 dhbg_1" style="width:50%; display:block; padding:40% 0 0 0" >&nbsp;</a>
+                   <a href="javascript:load_msg(0)"> <span class="f22" style="color:#FFF">送祝福</span></a>
+                </li>
+               <li style="width:33.3%; float:left;margin-top:7.4%;">
+                <a href="javascript:load_yqh(0)" class="dh_2 dhbg_1" style="width:43%; display:block; padding:32% 0 0 0">&nbsp;</a><a href="javascript:load_msg(0)"><span class="f22" style="color:#FFF">邀请函</span></a>
+            </li>
+               
+                
+                 <li style="width:33.3%; float:left;margin-top:8.7%;padding-right:10%;">
+                <a href="javascript:load_photo(0)" class="dh_3 dhbg_1" style="width:50%; display:block; padding:40% 0 0 0" >&nbsp;</a>
+                <a href="javascript:load_photo(0)"><span class="f22" style="color:#FFF">婚纱照</span></a></li>
+           </div>
+       </div>
+       
+   </div>
+    
+   
+ 
+ </div>
+ 
+ <script>
+$(document).scroll(function(){
+	if($(document).scrollTop()+$(window).height()>=$(document).height())
+		{
+			//load_msg(1);
+		}
+});
+</script>
