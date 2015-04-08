@@ -44,7 +44,6 @@ class BaseController extends Controller {
 		$weObj = new Wechat($this->_options);
 		$callback = C('WEB_HOST')."/wxt/wedding/?a=$action&c=$controller";
 		$jump_url = $weObj->getOauthRedirect($callback,1);
-		echo $jump_url;die;
 		header("location: $jump_url");
 	}
 }
