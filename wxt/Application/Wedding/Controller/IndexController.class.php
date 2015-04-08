@@ -5,14 +5,15 @@ namespace Wedding\Controller;
 use Wedding\Controller\BaseController;
 
 class IndexController extends BaseController {
-	private $userid = 100;
+	private $userid;
 	private $loginuser;
+	
 	public function __construct(){
-		echo 'fff';die;
 		parent::__construct();
 		$this->_options = C('weichat');
-		
+	
 	}
+	
 	private function _checklogin() {
 		$this->userid = I ( 'session.user_id', 0 );
 		if (! $this->userid) {

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<!DOCTYPE html>
 <html>
  <head> 
   <meta charset="utf-8" /> 
@@ -48,78 +48,78 @@ function initmap() {
                     map.panTo(latLng);
             }, 100);
     });
-	getResult(1);
+    getResult(1);
 }
 
 function openmap(v)
 {
-	if($.trim($('#m_inv_address').val())=='')
-	{
-		alert('地址不可以为空！');	return ;
-	}
-	if(v==0)
-	{
-		$('#closemap').css('display','block');
-		$('#container').css('display','block');
-		$('#daohang').css('display','block');
-		getResult(1);
-	}
-	else
-	{
-		$('#closemap').css('display','none');
-		$('#container').css('display','none');
-		$('#daohang').css('display','none');
-	}
+    if($.trim($('#m_inv_address').val())=='')
+    {
+        alert('地址不可以为空！');  return ;
+    }
+    if(v==0)
+    {
+        $('#closemap').css('display','block');
+        $('#container').css('display','block');
+        $('#daohang').css('display','block');
+        getResult(1);
+    }
+    else
+    {
+        $('#closemap').css('display','none');
+        $('#container').css('display','none');
+        $('#daohang').css('display','none');
+    }
 }
 function getResult(ipage) {
-	
+    
     var poiText = document.getElementById("m_inv_address").value;
     var regionText = document.getElementById("m_inv_city").value;
     var pnumber=6;
     var latlngBounds = new qq.maps.LatLngBounds();
     searchService = new qq.maps.SearchService({
-		
+        
         complete : function(results){
-			//$('#print').html(print_r(results));
-		    var count=results.detail.totalNum;
-			
-			if(count>0)
-			{
-				var cpage=Math.ceil(count/pnumber);
-				
-				var str="";
-				var list=results.detail.pois;
-				for(var i=0;i<list.length;i++)
-				{
-					str+=' <table width="100%"   style="cursor:pointer" onClick="setMapcenter(\''+list[i].latLng.lat+'\',\''+list[i].latLng.lng+'\')"  border="0" cellspacing="0" cellpadding="0">     <tr>       <td width="16%"  height="35" align="center" valign="middle" >'+(i+1)+'</td>       <td width="84%" style="font-size:12px;text-align:left;" height="55"><strong>'+list[i].name+'</strong><br>         地址：'+list[i].address+'<br>         </td>     </tr>     <tr>       <td height="1" colspan="2" align="center" bgcolor="#999999" ></td>       </tr>   </table>';
-				}
-				
-				var pstr="";
-				if(ipage<=1)
-				{
-					pstr+="上一页";
-				}
-				else
-				{
-					pstr+="<span style='cursor:pointer' onClick='getResult("+(ipage-1)+")' >上一页</span>";
-				}
-				
-				pstr+="&nbsp;"+ipage+"/"+cpage+"&nbsp;"
-				if(ipage>=cpage)
-				{
-					pstr+="下一页";
-				}
-				else
-				{
-					pstr+="<span style='cursor:pointer' onClick='getResult("+(ipage+1)+")' >下一页</span>";
-				}
-				var page=' <table width="100%" border="0" cellspacing="0" cellpadding="0">  <tr>  <td height="25" align="center" style="font-size:12px;"  >'+pstr+'</td></tr></table>';
-				$('#daohang').html(str+page);
-				
-			}
+            //$('#print').html(print_r(results));
+            var count=results.detail.totalNum;
+            
+            if(count>0)
+            {
+                var cpage=Math.ceil(count/pnumber);
+                
+                var str="";
+                var list=results.detail.pois;
+                for(var i=0;i<list.length;i++)
+                {
+                    str+=' <table width="100%"   style="cursor:pointer" onClick="setMapcenter(\''+list[i].latLng.lat+'\',\''+list[i].latLng.lng+'\')"  border="0" cellspacing="0" cellpadding="0">     <tr>       <td width="16%"  height="35" align="center" valign="middle" >'+(i+1)+'</td>       <td width="84%" style="font-size:12px;text-align:left;" height="55"><strong>'+list[i].name+'</strong><br>         地址：'+list[i].address+'<br>         </td>     </tr>     <tr>       <td height="1" colspan="2" align="center" bgcolor="#999999" ></td>       </tr>   </table>';
+                }
+                
+                var pstr="";
+                if(ipage<=1)
+                {
+                    pstr+="上一页";
+                }
+                else
+                {
+                    pstr+="<span style='cursor:pointer' onClick='getResult("+(ipage-1)+")' >上一页</span>";
+                }
+                
+                pstr+="&nbsp;"+ipage+"/"+cpage+"&nbsp;"
+                if(ipage>=cpage)
+                {
+                    pstr+="下一页";
+                }
+                else
+                {
+                    pstr+="<span style='cursor:pointer' onClick='getResult("+(ipage+1)+")' >下一页</span>";
+                }
+                var page=' <table width="100%" border="0" cellspacing="0" cellpadding="0">  <tr>  <td height="25" align="center" style="font-size:12px;"  >'+pstr+'</td></tr></table>';
+                $('#daohang').html(str+page);
+                
+            }
         }
     });
-	
+    
     searchService.setLocation(regionText);
     searchService.setPageIndex(ipage-1);
     searchService.setPageCapacity(pnumber);
@@ -127,9 +127,9 @@ function getResult(ipage) {
 }
 function setMapcenter(lat,lng)
 {
-	document.getElementById("mapX").value = lng;  
-	document.getElementById("mapY").value = lat;
-	$('#m_isqqmap').val('1');
+    document.getElementById("mapX").value = lng;  
+    document.getElementById("mapY").value = lat;
+    $('#m_isqqmap').val('1');
         var latLng=new qq.maps.LatLng(lat,lng);
         marker.setPosition(latLng);
         setTimeout(function() {
@@ -138,10 +138,10 @@ function setMapcenter(lat,lng)
 }
 
  $(document).ready(
-	function ()
-	{
-		initmap(); 
-	}
+    function ()
+    {
+        initmap(); 
+    }
  );
  
 </script> 
@@ -159,7 +159,7 @@ function setMapcenter(lat,lng)
         <tbody>
          <tr> 
           <td align="right">城市：</td> 
-          <td colspan="2" align="left"><input type="text" id="m_i nv_city" name="m_inv_city" value="<?php echo $userpost['city']?>" />&nbsp;&nbsp;只写城市名称即可，如“青岛”，而非“青岛市、山东青岛”<br />
+          <td colspan="2" align="left"><input type="text" id="m_inv_city" name="m_inv_city" value="<?php echo $userpost['city']?>" />&nbsp;&nbsp;只写城市名称即可，如“青岛”，而非“青岛市、山东青岛”<br />
            <!--onKeyUp="get_city()" onFocus="get_city()"--> 
            </td> 
          </tr> 
