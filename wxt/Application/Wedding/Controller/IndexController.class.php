@@ -11,7 +11,7 @@ class IndexController extends BaseController {
 	public function __construct(){
 		parent::__construct();
 		$this->_options = C('weichat');
-	
+		
 	}
 	private function _checklogin() {
 		$this->userid = I ( 'session.user_id', 0 );

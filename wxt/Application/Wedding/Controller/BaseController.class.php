@@ -40,6 +40,16 @@ class BaseController extends Controller {
 			}
 		}
 	}
+	
+	protected function _getParam($name) {
+		if (IS_POST){
+			return I("post.$name");
+		}else if(IS_GET){
+			return I("get.$name");
+		}else{
+			return '';
+		}
+	}
 	public function jump($action,$controller){
 		$weObj = new Wechat($this->_options);
 		$callback = C('WEB_HOST')."/wxt/wedding/?a=$action&c=$controller";
