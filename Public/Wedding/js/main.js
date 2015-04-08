@@ -1,11 +1,17 @@
 require.config({
-	 baseUrl: '/public/wedding/js',
+	 baseUrl: '/public/Wedding',
 	 paths:{
-	 	zepto:'zepto'
+	 	zepto:'js/zepto',
+	 	jquery:'date/jquery-1.9.1',
+	 	datejs:'date/date',
+	 	iscroll:'date/iscroll'
 	 }
 })
 
-require(['zepto'],function(zepto){
+require(['zepto','datejs','iscroll'],function(){
+
+	$('#endTime').date({theme:"datetime"});
+	// alert($("#yearwrapper ul li"))
 
 	// 设置字体
 	var fontsize=Math.round($('.bod_cent').width()/32) + "px";
@@ -38,7 +44,7 @@ require(['zepto'],function(zepto){
 	})
 
 	// 查看留言删除
-	$('.ckly_t .ckly_ta_r a').live('tap',function(){
+	$('.ckly_t .ckly_ta_r a').bind('click',function(){
 		$(this).parents('.ckly_ta').fadeOut('normal',function(){
 			$(this).remove();
 			$('.ckly_t .ckly_ta').eq(0).addClass('bor_no')
@@ -60,17 +66,17 @@ require(['zepto'],function(zepto){
 				$(this).attr('name','pause');
 			})
 			$('.zz_xzyy_t .control img').each(function(){
-				$(this).attr('src','img/stop.png');
+				$(this).attr('src','/Public/Wedding/img/stop.png');
 			})
 			var this_music = $(this).parents('.zz_xzyy_ta').find('font').attr('data-url');
 			document.getElementById('music_a').setAttribute('src',this_music);
 			document.getElementById('music_a').play();
 			$(this).attr('name','play');
-			$(this).find('img').attr('src','img/play.png');
+			$(this).find('img').attr('src','/Public/Wedding/img/play.png');
 		}else{
 			document.getElementById('music_a').pause();
 			$(this).attr('name','pause');
-			$(this).find('img').attr('src','img/stop.png');
+			$(this).find('img').attr('src','/Public/Wedding/img/stop.png');
 		}
 	})
 
@@ -82,7 +88,7 @@ require(['zepto'],function(zepto){
 				$(this).addClass('btn2')
 			})
 			$(this).text('已选择');
-			$(this).attr('name','checkesd');
+			$(this).attr('name','checked');
 			$(this).removeClass('btn2')
 		}else{
 			$(this).text('选择');
@@ -91,12 +97,38 @@ require(['zepto'],function(zepto){
 		}
 	})
 
+	$('.zz_xzyy .btn1').click(function(){
+		$('.select').each(function(){
+			if($(this).attr('name') == 'checked'){
+				var name = $(this).parents('.zz_xzyy_ta').find('font').text();
+				var id = $(this).parents('.zz_xzyy_ta').find('font').attr('data-id');
+				window.location.href="/wxt/wedding/index/selectMusic/id/"+id+"/name/"+name;
+				return false;
+			}
+		})
+			
+		
+	})
+	$('.btn1_mb').click(function(){
+		$('.zz_mb td').each(function(){
+			if($(this).find('em').attr('name') == 'aa'){
+				var stylename = $(this).find('span').attr('data-id');//$(this).find('span').text();
+				window.location.href="/wxt/wedding/index/selectTemplate/style/"+stylename;
+				return false;
+			}
+		})
+			
+		
+	})
+
 	// 制作 模版选择
 	$('.zz_mb td').click(function(){
 		$('.theme_checked').each(function(){
 			$(this).hide();
+			$(this).attr('name','')
 		})
 		$(this).find('.theme_checked').fadeIn();
+		$(this).find('.theme_checked').attr('name','aa')
 	}) 
 	// 制作 上传婚纱照
 	$('.zz_schsz .add_icon').click(function(){
@@ -135,24 +167,14 @@ require(['zepto'],function(zepto){
 			height:$('.section3a').width()+'px'
 		})
 	})
-	// $(function(){
-	// 	var dx1,dx2,dx3;
-	// 	$('.yyjb').bind('touchstart MSPointerDown pointerdown',function(ev){
-	// 		dx1 = ev.touches[0].clientY;
-	// 	})
-	// 	$('.yyjb').bind('touchmove MSPointerMove pointermove',function(ev){
-	// 		if(ev.touches[0].clientY>dx1 && ev.touches[0].clientY - dx1 < 60){
-	// 			$(this).css({
-	// 				top:ev.touches[0].clientY - dx1
-	// 			})
-	// 		}
-	// 	})
-	// 	$('.yyjb').bind('touchend MSPointerUp pointerup',function(ev){
-	// 		$(this).animate({
-	// 			top:0
-	// 		})
-	// 	})
 
 
-	// })
+	$(function(){
+		
+        $('.section3').click(function(){
+        	$('#filea').click();
+        })
+	})
+
 })
+

@@ -31,9 +31,11 @@ class MsgController extends BaseController {
             $this->assign('page',$Page->show());
         }else{
             $Messages = array();
+            $count = 0;
             $this->assign('page','');
         }
         $this->assign('mssages',$Messages);
+        $this->assign('count',$count);
         $this->display(':comments');
     }
     

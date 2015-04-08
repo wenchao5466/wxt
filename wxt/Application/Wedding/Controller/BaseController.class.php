@@ -8,8 +8,15 @@ class BaseController extends Controller {
 		$this->_options = C('weichat');
 		$action = ACTION_NAME;
 		$controller = CONTROLLER_NAME;
+		echo 'fffffff';die;
 		//如果没有Session和Cookie
-	if(!cookie('user_message')  && !session('user_message')){
+		/* if($_SERVER['SERVER_NAME'] == 'www.wxt.com'){
+			session('user_id',100);
+		}else if($_SERVER['SERVER_NAME'] == 'lc.webchat.com'){
+			session('user_id',100);
+		} */
+		
+		if(!cookie('user_id')  && !session('user_id')){
 // if(1){
 			$weObj = new Wechat($this->_options);
 			// 		$weObj->valid();//明文或兼容模式可以在接口验证通过后注释此句，但加密模式一定不能注释，否则会验证失败
