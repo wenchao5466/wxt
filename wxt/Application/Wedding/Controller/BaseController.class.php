@@ -3,7 +3,9 @@ namespace Wedding\Controller;
 use Think\Controller;
 use Common\ORG\Wechat;
 class BaseController extends Controller {
-	public function __initialize(){
+	private $_options;
+	public function _initialize(){
+		$this->_options = C('weichat');
 		$action = ACTION_NAME;
 		$controller = CONTROLLER_NAME;
 		//如果没有Session和Cookie
@@ -19,9 +21,10 @@ class BaseController extends Controller {
 				$user_message = $weObj->getOauthUserinfo($result['access_token'],$result['openid']);
 				session('user_message',$user_message);
 				var_dump(session('user_message'));
-				$user_item = M('user')->where(array('open'=>$result['openid']))->find();
+				$user_item = M('user')->where(array('openid'=>$result['openid']))->find();
 				if(!$user_item){
-					$user_item['open'] = $result['openid'];
+					$user_item['openid'] = $result['openid'];
+					$user_item['type'] = 'weixin';
 					$user_id = M('user')->save($user_item);
 			
 					cookie('user_id',$user_id);
@@ -31,7 +34,6 @@ class BaseController extends Controller {
 					cookie('user_id',$user_item['id']);
 				}
 				session('user_message',$user_message);
-				echo 'ffffffffff';die;
 				$this->redirect("/wxt/wedding/$c/$a");
 			}else{
 				$this->jump($action,$controller);
@@ -42,6 +44,7 @@ class BaseController extends Controller {
 		$weObj = new Wechat($this->_options);
 		$callback = C('WEB_HOST')."/wxt/wedding/?a=$action&c=$controller";
 		$jump_url = $weObj->getOauthRedirect($callback,1);
+		echo $jump_url;die;
 		header("location: $jump_url");
 	}
 }
