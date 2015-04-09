@@ -158,7 +158,7 @@ class Wechat
                                                 "地址：{$post['location']} "."\n".
                                                 "注意：长按此处在弹出菜单选择转发即可分享给好友",
                                  'picurl'=>"http://182.92.179.231{$post['photo']}",
-                                 'url'=>"http://182.92.179.231/wxt/xt/?code={$post['code']}#1"
+                                 'url'=>"http://182.92.179.231/wxt/xt/?code=8c4afcbd3150c175d2531c67e44d1455#1"
                             )
                       );
                      $resultStr = $this->responseNews($postObj,$articles);

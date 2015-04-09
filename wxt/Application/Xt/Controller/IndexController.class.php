@@ -5,7 +5,6 @@ class IndexController extends Controller {
     
     
     public function index(){
-        var_dump(1111111111);die;
         $code = I('get.code','','htmlspecialchars');
         
         $Userpost = M('Userpost')->where("code='$code'")->find();

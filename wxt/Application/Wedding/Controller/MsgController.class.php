@@ -3,24 +3,10 @@ namespace Wedding\Controller;
 use Think\Controller;
 class MsgController extends BaseController {
     
-    private $userid=0;
     private $pagesize = 10;
-    
-    private function _checklogin(){
-        $this->userid = I('session.user_id',0);
-        if(!$this->userid){
-            redirect(APP_NAME.'/member/index/login');
-        }
-        $User = M('User');
-        $loginuser = $User->where("id=$this->userid ")->find();
-        $this->assign('loginuser',$loginuser);
-         
-    }
-    
     
     public function glist(){
         
-        $this->_checklogin();
         $Message = M('Message');
         $Userpost = M('Userpost')->where("userid=$this->userid ")->find();
         if($Userpost){

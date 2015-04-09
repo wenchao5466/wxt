@@ -5,7 +5,6 @@ namespace Wedding\Controller;
 use Wedding\Controller\BaseController;
 
 class IndexController extends BaseController {
-	private $userid;
 	private $loginuser;
 	
 	public function __construct(){
@@ -14,16 +13,7 @@ class IndexController extends BaseController {
 	
 	}
 	
-	private function _checklogin() {
-		$this->userid = I ( 'session.user_id', 0 );
-		if (! $this->userid) {
-			redirect ( APP_NAME . '/member/index/login' );
-		}
-		
-		$User = M ( 'User' );
-		$this->loginuser = $User->where ( "id=$this->userid " )->find ();
-		$this->assign ( 'loginuser', $this->loginuser );
-	}
+	
 	public function index() {
 		// $this->_checklogin ();
 		$Model = M ( 'Userpost' );
@@ -189,6 +179,7 @@ class IndexController extends BaseController {
 		// $this->_checklogin();
 		$Model = M ( 'Userpost' );
 		$where = "userid=$this->userid";
+// 		print_r($_GET);die;
 		$Userpost = $Model->where ( $where )->find ();
 		$Userpost ['style'] = I ( 'style' );
 		$Model->where ( $where )->save ( $Userpost );
@@ -209,6 +200,62 @@ class IndexController extends BaseController {
 	}
 	public function test() {
 		echo 'test todo';
+	}
+	
+	public function address(){
+		$Model = M ( 'Userpost' );
+		$where = "userid=$this->userid";
+		$Userpost = $Model->where ( $where )->find ();
+// 				print_r($_GET);die;
+		//手动输入地址后保存
+		if(I('name')){
+			$name = I('name');
+			$Userpost['location'] = I("name");
+			echo $Model->save($Userpost);
+		}
+		if($Userpost['location']){
+			$name = $Userpost['location'];
+		}else{
+			$name = '北京市';
+		}
+		
+		
+		
+		$this->assign('address',$name);
+		$this->assign('userpost',$userpost);
+		$this->display(":address");
+	}
+	
+	public function inputAddress(){
+		$Model = M ('Userpost');
+		$where = "userid=$this->userid";
+		//print_r($_GET);die;
+		$Userpost = $Model->where ( $where )->find ();
+		$this->display(":input_address");
+	}
+	
+	public function saveAddress(){
+
+		
+		$Model = M ( 'Userpost' );
+		$where = "userid=$this->userid";
+		$Userpost = $Model->where ( $where )->find ();
+		$m_isqqmap = I('post.m_isqqmap','','htmlspecialchars');
+		
+// 		$m_inv_city = I('post.m_inv_city','','htmlspecialchars');
+		$m_inv_address = I('post.m_inv_address','','htmlspecialchars');
+		$mapx = I('post.mapx','','htmlspecialchars');
+		$mapy = I('post.mapy','','htmlspecialchars');
+		 
+		$Userpost['userid'] = $this->userid ;
+// 		$Userpost['city'] = $m_inv_city;
+		$Userpost['location'] = $m_inv_address;
+		$Userpost['location_x'] = $mapx;
+		$Userpost['location_y'] = $mapy;
+		
+		$Model->where($where)->save($data);
+		
+		redirect ( APP_NAME . '/wedding/' );
 	}
 	public function getTemplate() {
 		return array (

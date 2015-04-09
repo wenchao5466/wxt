@@ -1,5 +1,5 @@
 require.config({
-	 baseUrl: '/public/Wedding',
+	 baseUrl: '/Public/Wedding',
 	 paths:{
 	 	zepto:'js/zepto',
 	 	jquery:'date/jquery-1.9.1',
@@ -120,6 +120,14 @@ require(['zepto','datejs','iscroll'],function(){
 			
 		
 	})
+	//输入地址跳转
+	$('#submit_address').click(function(){
+		var address = $("#address").val();
+		window.location.href="/wxt/wedding/index/address/name/"+address;
+		return false;
+		
+		
+	})
 
 	// 制作 模版选择
 	$('.zz_mb td').click(function(){
@@ -163,9 +171,7 @@ require(['zepto','datejs','iscroll'],function(){
 				})
 		})
 
-		$('.section3a').css({
-			height:$('.section3a').width()+'px'
-		})
+		$('.section3a').css('height',$('.section3a').width()+'px');
 	})
 
 
