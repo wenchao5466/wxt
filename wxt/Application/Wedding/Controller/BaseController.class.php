@@ -6,6 +6,7 @@ class BaseController extends Controller {
 	protected $_options;
 	protected $userid;
 	public function _initialize(){
+		$code = generation_guid_string();
 		$this->_options = C('weichat');
 		$action = ACTION_NAME;
 		$controller = CONTROLLER_NAME;
@@ -33,7 +34,7 @@ class BaseController extends Controller {
 					
 					$user_info = M('user')->where(array('openid'=>$result['openid']))->find();
 					$code = generation_guid_string();
-					$model->execute("insert into wxt_userpost set userid=".$user_info['id']," , code='".$code."' ");
+					$model->execute("insert into wxt_userpost set userid=".$user_info['id']," , code='".$code."'");
 						
 					cookie('user_id',$user_info['id']);
 					session('user_id',$user_info['id']);
@@ -44,7 +45,7 @@ class BaseController extends Controller {
 					$post_info = M('userpost')->where(array('userid'=>$user_item['id']))->find();
 					if(!$post_info){
 						$code = generation_guid_string();
-						$model->execute("insert into wxt_userpost set userid=".$user_info['id'].", code='".$code);
+						$model->execute("insert into wxt_userpost set userid=".$user_info['id'].", code='".$code."'");
 					}	
 				}
 				session('user_message',$user_message);
