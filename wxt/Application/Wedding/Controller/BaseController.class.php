@@ -13,8 +13,9 @@ class BaseController extends Controller {
 			session('user_id',100);
 		}else if($_SERVER['SERVER_NAME'] == 'lc.webchat.com'){
 			session('user_id',100);
+		}else if($_SERVER['SERVER_NAME'] == 'lc.wxt.com'){
+			session('user_id',100);
 		}
-		
 		
 		if(!cookie('user_id')  && !session('user_id')){
 			$weObj = new Wechat($this->_options);
