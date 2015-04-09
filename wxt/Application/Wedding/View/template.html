@@ -11,8 +11,8 @@
 	<meta http-equiv="Cache-Control" CONTENT="no-cache">           
 	<meta http-equiv="Pragma" CONTENT="no-cache">
 	
-	<link rel="stylesheet" href="/public/Wedding/css/pages.css?t=123a2a" />
-	 <script src="/public/Wedding/js/require.js" data-main="/public/Wedding/js/main"></script>
+	<link rel="stylesheet" href="/Public/Wedding/css/pages.css?t=123a2a" />
+	 <script src="/Public/Wedding/js/require.js" data-main="/Public/Wedding/js/main"></script>
 </head>
 <body>
 <div class="bod_cent">
@@ -28,9 +28,9 @@
 					<span data-id="<?php echo $template['id']; ?>"><?php echo $template['name']; ?></span>
 				</div>
 				<?php if($key==0){ ?>
-				<em class="theme_checked" style="display:block"><img src="/public/Wedding/img/theme_checked.png" alt=""></em>
+				<em class="theme_checked" style="display:block"><img src="/Public/Wedding/img/theme_checked.png" alt=""></em>
 				<?php } else {?>
-				<em class="theme_checked"><img src="/public/Wedding/img/theme_checked.png" alt=""></em>
+				<em class="theme_checked"><img src="/Public/Wedding/img/theme_checked.png" alt=""></em>
 				<?php }?>
 			</td>
 		<?php if($key%3==2){?>
@@ -39,70 +39,70 @@
 		<?php endforeach;?>
 		<!-- <tr>
 			<td>
-				<img src="/public/Wedding/img/theme_htxs.jpg" alt="">
+				<img src="/Public/Wedding/img/theme_htxs.jpg" alt="">
 				<div class="theme_tit p_a t_al_c">
 					<span>花田喜事</span>
 				</div>
-				<em class="theme_checked" name='aa'><img src="/public/Wedding/img/theme_checked.png" alt=""></em>
+				<em class="theme_checked" name='aa'><img src="/Public/Wedding/img/theme_checked.png" alt=""></em>
 			</td>
 			<td>
-				<img src="/public/Wedding/img/theme_qsyx.jpg" alt="">
+				<img src="/Public/Wedding/img/theme_qsyx.jpg" alt="">
 				<div class="theme_tit p_a t_al_c">
 					<span>浅水语行</span>
 				</div>
-				<em class="theme_checked"><img src="/public/Wedding/img/theme_checked.png" alt=""></em>
+				<em class="theme_checked"><img src="/Public/Wedding/img/theme_checked.png" alt=""></em>
 			</td>
 			<td>
-				<img src="/public/Wedding/img/theme_gzrj.jpg" alt="">
+				<img src="/Public/Wedding/img/theme_gzrj.jpg" alt="">
 				<div class="theme_tit p_a t_al_c">
 					<span>公主日记</span>
 				</div>
-				<em class="theme_checked"><img src="/public/Wedding/img/theme_checked.png" alt=""></em>
+				<em class="theme_checked"><img src="/Public/Wedding/img/theme_checked.png" alt=""></em>
 			</td>
 		</tr>		<tr>
 			<td>
-				<img src="/public/Wedding/img/theme_jqrm.jpg" alt="">
+				<img src="/Public/Wedding/img/theme_jqrm.jpg" alt="">
 				<div class="theme_tit p_a t_al_c">
 					<span>佳期如梦</span>
 				</div>
-				<em class="theme_checked"><img src="/public/Wedding/img/theme_checked.png" alt=""></em>
+				<em class="theme_checked"><img src="/Public/Wedding/img/theme_checked.png" alt=""></em>
 			</td>
 			<td>
-				<img src="/public/Wedding/img/theme_zmsg.jpg" alt="">
+				<img src="/Public/Wedding/img/theme_zmsg.jpg" alt="">
 				<div class="theme_tit p_a t_al_c">
 					<span>最美时光</span>
 				</div>
-				<em class="theme_checked"><img src="/public/Wedding/img/theme_checked.png" alt=""></em>
+				<em class="theme_checked"><img src="/Public/Wedding/img/theme_checked.png" alt=""></em>
 			</td>
 			<td>
-				<img src="/public/Wedding/img/theme_hhyy.jpg" alt="">
+				<img src="/Public/Wedding/img/theme_hhyy.jpg" alt="">
 				<div class="theme_tit p_a t_al_c">
 					<span>花好月圆</span>
 				</div>
-				<em class="theme_checked"><img src="/public/Wedding/img/theme_checked.png" alt=""></em>
+				<em class="theme_checked"><img src="/Public/Wedding/img/theme_checked.png" alt=""></em>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<img src="/public/Wedding/img/theme_htxs.jpg" alt="">
+				<img src="/Public/Wedding/img/theme_htxs.jpg" alt="">
 				<div class="theme_tit p_a t_al_c">
 					<span>花田喜事</span>
 				</div>
-				<em class="theme_checked"><img src="/public/Wedding/img/theme_checked.png" alt=""></em>
+				<em class="theme_checked"><img src="/Public/Wedding/img/theme_checked.png" alt=""></em>
 			</td>
 			<td>
-				<img src="/public/Wedding/img/theme_qsyx.jpg" alt="">
+				<img src="/Public/Wedding/img/theme_qsyx.jpg" alt="">
 				<div class="theme_tit p_a t_al_c">
 					<span>浅水语行</span>
 				</div>
-				<em class="theme_checked"><img src="/public/Wedding/img/theme_checked.png" alt=""></em>
+				<em class="theme_checked"><img src="/Public/Wedding/img/theme_checked.png" alt=""></em>
 			</td>
 			<td>
-				<img src="/public/Wedding/img/theme_gzrj.jpg" alt="">
+				<img src="/Public/Wedding/img/theme_gzrj.jpg" alt="">
 				<div class="theme_tit p_a t_al_c">
 					<span>公主日记</span>
 				</div>
-				<em class="theme_checked"><img src="/public/Wedding/img/theme_checked.png" alt=""></em>
+				<em class="theme_checked"><img src="/Public/Wedding/img/theme_checked.png" alt=""></em>
 			</td>
 		</tr> -->
 	</table>

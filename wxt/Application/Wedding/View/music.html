@@ -11,57 +11,57 @@
 	<meta http-equiv="Cache-Control" CONTENT="no-cache">           
 	<meta http-equiv="Pragma" CONTENT="no-cache">
 	
-	<link rel="stylesheet" href="/public/Wedding/css/pages.css?t-321a" />
-	 <script src="/public/Wedding/js/require.js" data-main="/public/Wedding/js/main"></script>
+	<link rel="stylesheet" href="/Public/Wedding/css/pages.css?t-321a" />
+	 <script src="/Public/Wedding/js/require.js" data-main="/Public/Wedding/js/main"></script>
 </head>
 <body>
 <div class="bod_cent">
 	<div class="zz_xzyy">
-		<audio src="/public/Wedding/img/123.mp3" controls preload id="music_a" class="music_a p_a"></audio>
+		<audio src="/Public/Wedding/img/123.mp3" controls preload id="music_a" class="music_a p_a"></audio>
 
 		<section class="ckly_top c4c">一共有<font class='d_ib'>62</font>个可供选择的</section>
 		<div class="zz_xzyy_t bg_fff">
 <?php foreach($musics as $music):?>
 			<div class="zz_xzyy_ta d_tb row100">
 				<div class="zz_xzyy_ta1 d_tb_c">
-					<img src="/public/Wedding/img/music_bg.jpg" class="img1" alt="">
+					<img src="/Public/Wedding/img/music_bg.jpg" class="img1" alt="">
 					<font data-id="<?php echo $music['id']?>" data-url="<?php echo $music['url']?>"><?php echo $music['name']?></font>
 				</div>
 				<div class="zz_xzyy_ta2 d_tb_c">
-					<a href="javascript:void(0)" class="control d_ib" name="pause"><img src="/public/Wedding/img/stop.png" alt=""></a>
+					<a href="javascript:void(0)" class="control d_ib" name="pause"><img src="/Public/Wedding/img/stop.png" alt=""></a>
 					<a href="javascript:void(0)" class="select d_ib btn2" name="check">选择</a>
 				</div>
 			</div>
 <?php endforeach;?>
 			<!-- <div class="zz_xzyy_ta d_tb row100">
 				<div class="zz_xzyy_ta1 d_tb_c">
-					<img src="/public/Wedding/img/music_bg.jpg" class="img1" alt="">
-					<font data-url="/public/Wedding/img/she.mp3">北欧神话-she</font>
+					<img src="/Public/Wedding/img/music_bg.jpg" class="img1" alt="">
+					<font data-url="/Public/Wedding/img/she.mp3">北欧神话-she</font>
 				</div>
 				<div class="zz_xzyy_ta2 d_tb_c">
-					<a href="javascript:void(0)" class="control d_ib" name="pause"><img src="/public/Wedding/img/stop.png" alt=""></a>
+					<a href="javascript:void(0)" class="control d_ib" name="pause"><img src="/Public/Wedding/img/stop.png" alt=""></a>
 					<a href="javascript:void(0)" class="select d_ib btn2" name="check">选择</a>
 				</div>
 			</div>
 
 			<div class="zz_xzyy_ta d_tb row100 bor_no">
 				<div class="zz_xzyy_ta1 d_tb_c">
-					<img src="/public/Wedding/img/music_bg.jpg" class="img1" alt="">
-					<font data-url="/public/Wedding/img/123.mp3">洋葱-五月天</font>
+					<img src="/Public/Wedding/img/music_bg.jpg" class="img1" alt="">
+					<font data-url="/Public/Wedding/img/123.mp3">洋葱-五月天</font>
 				</div>
 				<div class="zz_xzyy_ta2 d_tb_c">
-					<a href="javascript:void(0)" class="control d_ib" name="pause"><img src="/public/Wedding/img/stop.png" alt=""></a>
+					<a href="javascript:void(0)" class="control d_ib" name="pause"><img src="/Public/Wedding/img/stop.png" alt=""></a>
 					<a href="javascript:void(0)" class="select d_ib btn2" name="check">选择</a>
 				</div>
 			</div>
 
 			<div class="zz_xzyy_ta d_tb row100">
 				<div class="zz_xzyy_ta1 d_tb_c">
-					<img src="/public/Wedding/img/music_bg.jpg" class="img1" alt="">
-					<font data-url="/public/Wedding/img/she.mp3">北欧神话-she</font>
+					<img src="/Public/Wedding/img/music_bg.jpg" class="img1" alt="">
+					<font data-url="/Public/Wedding/img/she.mp3">北欧神话-she</font>
 				</div>
 				<div class="zz_xzyy_ta2 d_tb_c">
-					<a href="javascript:void(0)" class="control d_ib" name="pause"><img src="/public/Wedding/img/stop.png" alt=""></a>
+					<a href="javascript:void(0)" class="control d_ib" name="pause"><img src="/Public/Wedding/img/stop.png" alt=""></a>
 					<a href="javascript:void(0)" class="select d_ib btn2" name="check">选择</a>
 				</div>
 			</div>
