@@ -56,7 +56,7 @@ table{border-collapse:collapse;border-spacing:0}
 .a404_t1{vertical-align:middle;font-size:1.5rem;}
 .a404_t1 img{width:37.5%;}
 
-/* 应邀嘉宾 */
+/* 搴旈個鍢夊 */
 .yyjb{height:100%;position:relative;}
 .yyjb_top{padding:1.5% 3%;font-size:1.1rem;color:#4c4c4c;border-bottom:1px #ccc solid;}
 .yyjb_top h4{font-size:1.5rem;line-height:2.2rem;}
@@ -69,11 +69,11 @@ table{border-collapse:collapse;border-spacing:0}
 .yyjb_cont_t var{color:#5c89cb;margin-right:.5rem;}
 .yyjb_cont_b{font-size:1.5rem;color:#808080;padding:30px 0 10px 0;}
 
-/* 预览我的喜帖 */
+/* 棰勮鎴戠殑鍠滃笘 */
 .ylxt{height:100%;font-size:1.5rem;}
 .ylxt img{width:46.5%;margin:auto;}
 
-/* 喜帖 主题预览 */
+/* 鍠滃笘 涓婚棰勮 */
 .theme_intro{height:100%;background:url(../img/theme.jpg) 0 center no-repeat;background-size:100%;}
 .theme1{background-color:#7a45aa;}
 .theme_intro_t{top:43%;width:100%;text-align:center;font-size:1.4rem;line-height:2rem;}
@@ -95,7 +95,7 @@ table{border-collapse:collapse;border-spacing:0}
 }
 .music_a{z-index:1;visibility:hidden;left:-999em;}
 
-/* 查看留言 */
+/* 鏌ョ湅鐣欒█ */
 .ckly_top{padding:2% 3% 0 3%;font-size:1.2rem;line-height:2rem;border-bottom:1px #ccc solid;}
 .ckly_top font{font-size:2.4rem;color:#ff6582;margin:0 .5rem;}
 .ckly_t{border-bottom:1px #ccc solid;padding:0 3%;}
@@ -106,7 +106,7 @@ table{border-collapse:collapse;border-spacing:0}
 .ckly_ta var{color:#b2b2b2;}
 .ckly_ta_r{width:2rem;}
 
-/* 制作 选择音乐 */
+/* 鍒朵綔 閫夋嫨闊充箰 */
 .zz_xzyy_t{padding:0 3%;border-bottom:1px #ccc solid;}
 .zz_xzyy_ta .d_tb_c{vertical-align:middle;line-height:100%;font-size:1.4rem;}
 .zz_xzyy_ta{padding:1.6rem 0;border-top:1px #ccc solid;}
@@ -116,14 +116,14 @@ table{border-collapse:collapse;border-spacing:0}
 .zz_xzyy_ta2 .select{font-size:1.5rem;height:3.5rem;line-height:3.5rem;width:7rem;text-align:center;margin-left:1.5rem;color:#808080;}
 .zz_xzyy_ta2 .btn2{background-color:#ff6582;color:#fff;border-radius:5px;}
 
-/* 制作 模版 */
+/* 鍒朵綔 妯＄増 */
 table.zz_mb{border-spacing:2rem;width:98.6%;margin:auto;}
 table.zz_mb td{margin:1.5rem 0;padding:0 .7% 0;width:32%;position:relative;}
 .theme_tit{width:100%;bottom:2.4rem;}
 .theme_tit span{display:block;margin:auto;font-size:1.2rem;border-radius:16px;height:2.6rem;line-height:2.8rem;width:60%;background-color:rgba(0,0,0,0.4);color:#fff;}
 .theme_checked{position:absolute;right:.8rem;top:.8rem;width:2.8rem;display:none;}
 
-/* 制作  地点 */
+/* 鍒朵綔  鍦扮偣 */
 .zz_dd textarea{padding:.5rem;color:#666;border:none;border-bottom:1px #ccc solid;}
 .zz_dd a,.zz_ddsr_bot a,.zz_xzyy .btn1,.btn1_mb{display:block;margin:auto;background-color:#ff6582;color:#fff;width:90%;height:4rem;line-height:4rem;font-size:1.6rem;}
 .zz_ddsr{height:100%;}
@@ -135,7 +135,7 @@ table.zz_mb td{margin:1.5rem 0;padding:0 .7% 0;width:32%;position:relative;}
 .zz_ddsr_texta font{font-size:1.5rem;color:#333;line-height:2rem;}
 .zz_ddsr_texta .checked{width:2rem;position:absolute;right:1rem;top:1.2rem;}
 
-/* 制作  日期 */
+/* 鍒朵綔  鏃ユ湡 */
 .zz_rq_tit,.zz_rq_tit1{border-bottom:1px #ccc solid;color:#eb5370;}
 .zz_rq_tit em{display:table-cell;text-align:center;line-height:3rem;}
 .zz_rq_tit1{width:90%;margin:auto;font-size:1.2rem;line-height:3.4rem;margin-bottom:2rem;}
@@ -147,7 +147,7 @@ table.zz_mb td{margin:1.5rem 0;padding:0 .7% 0;width:32%;position:relative;}
 .zz_rq_tb td.checked{background-color:#eb5370;color:#fff;border-radius:3px}
 .zz_rq_tb td.checked span{color:#fff;}
 
-/* 首页 */
+/* 棣栭〉 */
 .index{padding:.4rem .2rem;}
 .mytxt{position:absolute;top:45%;left:0;width:100%;text-align:center;font-size:1.8rem;line-height:2.2rem;color:#fff;}
 .mytxt:focus{outline:none;}

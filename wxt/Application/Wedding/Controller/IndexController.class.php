@@ -236,26 +236,33 @@ class IndexController extends BaseController {
 	
 	public function saveAddress(){
 
-		
 		$Model = M ( 'Userpost' );
 		$where = "userid=$this->userid";
 		$Userpost = $Model->where ( $where )->find ();
-		$m_isqqmap = I('post.m_isqqmap','','htmlspecialchars');
 		
-// 		$m_inv_city = I('post.m_inv_city','','htmlspecialchars');
-		$m_inv_address = I('post.m_inv_address','','htmlspecialchars');
-		$mapx = I('post.mapx','','htmlspecialchars');
-		$mapy = I('post.mapy','','htmlspecialchars');
-		 
-		$Userpost['userid'] = $this->userid ;
-// 		$Userpost['city'] = $m_inv_city;
+		$m_isqqmap = I('m_isqqmap');
+		$m_inv_address = I('m_inv_address');
+		$mapx = I('mapX');
+		$mapy = I('mapY');
+		
+		
+		$Userpost['userid'] = $this->userid;
 		$Userpost['location'] = $m_inv_address;
 		$Userpost['location_x'] = $mapx;
 		$Userpost['location_y'] = $mapy;
+//		var_dump($Userpost);
+		$result = $Model->where($where)->save($Userpost);
+		if($result){
+			echo json_encode(array('code'=>100,'msg'=>'保存成功'));die;
+		}else{
+			echo json_encode(array('code'=>101,'msg'=>'保存失败'));die;
+		}
+		//redirect ( APP_NAME . '/wedding/' );
+	}
+	
+	public function weddingPic(){
 		
-		$Model->where($where)->save($data);
-		
-		redirect ( APP_NAME . '/wedding/' );
+		$this->display(":wedding_pic");
 	}
 	public function getTemplate() {
 		return array (
