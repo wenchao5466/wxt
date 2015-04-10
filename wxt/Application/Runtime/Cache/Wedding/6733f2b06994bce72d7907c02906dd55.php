@@ -150,8 +150,9 @@
 		marker.setPosition(latLng);
 		setTimeout(function() {
 			map.panTo(latLng);
+			$('#address_form').submit();
 		}, 100);
-		$('#address_form').submit();
+		
 	}
 
 	$(document).ready(function() {
@@ -176,7 +177,7 @@
 				<!-- <div onclick="openmap(1)" id="closemap"
 					style="display: none; cursor: pointer; margin-bottom: 1px; color: #F00">
 					[收起地图]</div> -->
-				<div style="height: 400px; display: none" id="container"></div>
+				<div style="height: 200px; display: none" id="container"></div>
 			</div>
 			<div class="zz_ddsr_text" style="clear: both;">
 				<div style="width: 100%; clear: both; display: none" id="daohang"></div>
