@@ -17,7 +17,6 @@
 <script type="text/javascript" src="/Public/Wedding/js/jq.js"></script>
 <script type="text/javascript">
 	var sd = false;
-	/*
 	function del(v, id) {
 		if (v == 0) {
 			if (confirm('您确定要删除吗?')) {
@@ -39,8 +38,6 @@
 			}
 		}
 	}
-	*/
-
 	
 	function showPage(is_init){
 		
@@ -49,7 +46,7 @@
 		var next_page = $("#next_page").val();//后一页
 		var total_current = $("#total_page").val();//总页数
 		
-		if(page >= total_current){
+		if(page > total_current){
 			return false;
 		}else{
 		
@@ -65,7 +62,7 @@
 							html += '		<var>'+data[i].create_time+'</var>';
 							html += '	</div>';
 							html += '	<div class="ckly_ta_r d_tb_c">';
-							html += '		<a onclick="del(0,62)" href="javascript:void(0)"><img alt="" src="/public/Wedding/img/delet.png"></a>';
+							html += '		<a onclick="del(0,'+data[i].id+')" href="javascript:void(0)"><img alt="" src="/public/Wedding/img/delet.png"></a>';
 							html += '	</div>';
 							html += '</div>';
 						}
@@ -80,7 +77,9 @@
 						$("#prev_page").val(result.prev_page);
 						$("#next_page").val(result.next_page);
 						$("#total_page").val(result.total_page);
-						
+						if(result.page > result.total_page){
+							$("#show_more").hide();
+						}
 					return true;
 			},'json');
 		}
