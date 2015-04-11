@@ -8,7 +8,10 @@ class PhotoController extends baseController {
     
     
     public function glist(){
-        
+    	$Userphoto = M('Userphotos');
+    	$where = "userid=$this->userid ";
+    	
+    	$count   = $Userphoto->where($where)->count();
         
         $Userphoto = M('Userphotos');
         $where = "userid=$this->userid ";
@@ -21,6 +24,7 @@ class PhotoController extends baseController {
         
         $videoUserphoto = $Userphoto->where($where."and type='video'")->limit('1')->find();
         $this->assign('video',$videoUserphoto['url']);
+        $this->assign('pic_count',$count);
         
         $this->display(':wedding_pic');
     }
@@ -65,7 +69,7 @@ class PhotoController extends baseController {
                 $count   = $Userphoto->where($where)->count();
                 if($count>10){
                     $data['status']  = '-1';
-                    $data['msg'] ='总共可上传30张,已超过不能上传';
+                    $data['msg'] ='总共可上传10张,已超过不能上传';
                     $this->ajaxReturn($data);
                 }
 

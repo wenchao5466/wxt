@@ -307,10 +307,7 @@ class IndexController extends BaseController {
 		}
 		
 	}
-	public function weddingPic(){
-		
-		$this->display(":wedding_pic");
-	}
+	
 	public function getTemplate() {
 		return array (
 				array (
