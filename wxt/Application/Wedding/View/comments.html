@@ -13,11 +13,11 @@
 <meta http-equiv="Pragma" CONTENT="no-cache">
 
 <link rel="stylesheet" href="/public/Wedding/css/pages.css" />
-<script src="/public/Wedding/js/require.js"
-	data-main="/Public/Weddingjs/main"></script>
+<script src="/public/Wedding/js/require.js" data-main="/Public/Wedding/js/main"></script>
 <script type="text/javascript" src="/Public/Wedding/js/jq.js"></script>
 <script type="text/javascript">
 	var sd = false;
+	/*
 	function del(v, id) {
 		if (v == 0) {
 			if (confirm('您确定要删除吗?')) {
@@ -33,12 +33,65 @@
 						window.location.href = window.location.href;
 					} else {
 						sd = false;
-						alert(data.msg, '');
+						//alert(data.msg, '');
 					}
 				}, 'json');
 			}
 		}
 	}
+	*/
+
+	
+	function showPage(is_init){
+		
+		var page = $("#page").val();//当前页码
+		var prev_page = $("#prev_page").val();//前一页
+		var next_page = $("#next_page").val();//后一页
+		var total_current = $("#total_page").val();//总页数
+		
+		if(page >= total_current){
+			return false;
+		}else{
+		
+			$.get("<?php echo APP_NAME?>/wedding/msg/glist/p/"+page+"/page/"+page+"/prev_page/"+prev_page+"/next_page/"+next_page,function(result){
+					console.log(result);
+					//window.location.href=window.location.href;
+						var data = result.list;
+						var html = '';
+						for(var i in data){
+							html += '<div class="ckly_ta d_tb row100 bor_no">';
+							html += '	<div class="ckly_ta_l d_tb_c">';
+							html += '		<font>'+data[i].name+'</font><br><em>'+data[i].description+'</em><br>';
+							html += '		<var>'+data[i].create_time+'</var>';
+							html += '	</div>';
+							html += '	<div class="ckly_ta_r d_tb_c">';
+							html += '		<a onclick="del(0,62)" href="javascript:void(0)"><img alt="" src="/public/Wedding/img/delet.png"></a>';
+							html += '	</div>';
+							html += '</div>';
+						}
+						
+						if(is_init == 1){
+							$("#messages").html(html);
+						}else{
+							$("#messages").append(html);
+						}
+						
+						$("#page").val(result.page);
+						$("#prev_page").val(result.prev_page);
+						$("#next_page").val(result.next_page);
+						$("#total_page").val(result.total_page);
+						
+					return true;
+			},'json');
+		}
+	}
+	
+$(function(){
+	showPage(1);
+	$("#show_more").click(function(){
+		showPage(2);
+	});
+});
 </script>
 </head>
 <body>
@@ -50,29 +103,17 @@
 				</font>条祝福
 			</section>
 			<div class="ckly_t bg_fff">
-				<?php foreach($mssages as $mssage):?>
-				<div class="ckly_ta d_tb row100 bor_no">
-					<div class="ckly_ta_l d_tb_c">
-						<font>
-							<?php echo $mssage['name']?>
-						</font><br /> <em>
-							<?php echo $mssage['description']?>
-						</em><br />
-						<var>
-							<?php echo $mssage['create_time']?>
-						</var>
-					</div>
-					<div class="ckly_ta_r d_tb_c">
-						<a href="javascript:void(0)"
-							onClick="del(0,<?php echo $mssage['id']?>)"><img
-							src="/public/Wedding/img/delet.png" alt=""></a>
-					</div>
-				</div>
-				<?php endforeach;?>
+				<div class="ckly_ta d_tb row100 bor_no" id="messages">
+					
 
+				</div>
 			</div>
 
-			<div class="yyjb_cont_b t_al_c">(点击)上拉查看更多...</div>
+			<div class="yyjb_cont_b t_al_c" id="show_more">(点击)上拉查看更多...</div>
+			<input type="hidden" name="page" id="page" value="1"/>
+			<input type="hidden" name="prev_page" id="prev_page" value="1"/>
+			<input type="hidden" name="next_page" id="next_page" value="2"/>
+			<input type="hidden" name="total_page" id="total_page" value="{$total_page}"/>
 		</div>
 
 	</div>

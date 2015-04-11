@@ -4,7 +4,7 @@ use Think\Controller;
 class MsgController extends Controller {
     
     private $userid=0;
-    private $pagesize = 10;
+    private $pagesize = 1;
     
     private function _checklogin(){
        
