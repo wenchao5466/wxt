@@ -11,18 +11,28 @@
 	<meta http-equiv="Cache-Control" CONTENT="no-cache">           
 	<meta http-equiv="Pragma" CONTENT="no-cache">
 	
-	<link rel="stylesheet" href="css/pages.css" />
-	 <script src="js/require.js" data-main="js/main"></script>
+	<link rel="stylesheet" href="/Public/Wedding/css/pages.css" />
+	 <script src="/Public/Wedding/js/require.js" data-main="/Public/Wedding/js/main"></script>
 </head>
 <body>
 <div class="bod_cent">
 	<div class="a404 d_tb row100">
 		<div class="a404_t1 t_al_c d_tb_c c8080">
-			<img src="img/a404_img1.jpg" alt="">
+			<img src="/Public/Wedding/img/a404_img1.jpg" alt="">
 			<div class="emp20"></div>
 			哎呀......您访问的页面不存在
 		</div>
 	</div>
 </div>
+<a id="href" href="/wxt/wedding"></a>
+<script type="text/javascript">
+
+(function(){
+	var wait = document.getElementById('wait'),href = document.getElementById('href').href;
+	var interval = setInterval(function(){
+		location.href = href;
+	}, 1000);
+})(); 
+</script>
 </body>
 </html>

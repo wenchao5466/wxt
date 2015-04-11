@@ -12,13 +12,13 @@ class BaseController extends Controller {
 		$controller = CONTROLLER_NAME;
 		//如果没有Session和Cookie
 		if($_SERVER['SERVER_NAME'] == 'www.wxt.com'){
-			session('user_id',110);
+			session('user_id',8);
 		}else if($_SERVER['SERVER_NAME'] == 'lc.webchat.com'){
-			session('user_id',110);
+			session('user_id',8);
 		}else if($_SERVER['SERVER_NAME'] == 'lc.wxt.com'){
-			session('user_id',110);
+			session('user_id',8);
 		}else if($_SERVER['SERVER_NAME'] == '123.57.68.39'){
-			session('user_id',110);
+			session('user_id',8);
 		}
 		if(!cookie('user_id')  && !session('user_id')){
 			$weObj = new Wechat($this->_options);
@@ -61,6 +61,10 @@ class BaseController extends Controller {
 		$this->_checklogin();
 	}
 	
+	protected function _empty(){
+    	$this->_view('404');
+    }
+    
 	private function _checklogin() {
 		$this->userid = I ( 'session.user_id', 0 );
 		if (! $this->userid) {

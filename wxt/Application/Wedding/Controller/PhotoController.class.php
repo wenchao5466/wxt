@@ -241,4 +241,51 @@ class PhotoController extends baseController {
         }
     }
     
+    public function saveUserImage(){
+    	
+    	
+                $upload = new \Think\Upload();// 实例化上传类
+                $upload->maxSize = 3145728;
+                //$upload->savePath = './Public/Uploads/';
+                $upload->saveName = array('uniqid','');
+                $upload->exts     = array('jpg', 'gif', 'png', 'jpeg');
+                $upload->autoSub  = true;
+                $upload->subName  = array('date','Ymd');
+                
+                //
+                $Model = M ( 'Userpost' );
+				$where = "userid=$this->userid";
+				$Userpost = $Model->where ( $where )->find ();
+		
+
+                // 上传单个文件 
+                $info   =   $upload->uploadOne($_FILES['Filedata']);
+                
+                
+                
+				
+                if(!$info) {// 上传错误提示错误信息
+                    $data['status']  = '-1';
+                    $data['msg'] =$upload->getError();
+                    $this->ajaxReturn($data);
+                }else{// 上传成功 获取上传文件信息
+                	$image = new \Think\Image();
+//                	ECHO $_SERVER['DOCUMENT_ROOT']."/Uploads/".$info['savepath'].$info['savename'];DIE;
+					$image->open($_SERVER['DOCUMENT_ROOT']."/Uploads/".$info['savepath'].$info['savename']);
+					//将图片裁剪为400x400并保存为corp.jpg
+//					$image->crop(200, 200)->save($_SERVER['DOCUMENT_ROOT']."/Uploads/".$info['savepath'].$info['savename']);
+					$image->thumb(200, 200)->save($_SERVER['DOCUMENT_ROOT']."/Uploads/".$info['savepath'].$info['savename']);
+                    $data['status']  = "1";
+                    $data['msg'] = '上传成功';
+                    $data['url'] = "/Uploads/".$info['savepath'].$info['savename'];
+                	$Userpost['photo'] = $data['url'];
+                	$Userpost['update_time'] = time();
+                 	$Model->save($Userpost);
+					$result['url'] = $data['url']; 
+                 
+                    $this->ajaxReturn($result);
+
+                }        	
+        
+    }
 }

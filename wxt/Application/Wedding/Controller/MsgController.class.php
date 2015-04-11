@@ -21,6 +21,7 @@ class MsgController extends BaseController {
             $this->assign('page','');
         }
         $this->assign('mssages',$Messages);
+        var_dump($Messages);die;
         $this->assign('count',$count);
         $this->display(':comments');
     }

@@ -13,7 +13,10 @@
 	<link rel="stylesheet" href="/Public/Wedding/css/pages.css?t=123a2e" />
 	<script src="/Public/Wedding/js/require.js?t=31231" data-main="/Public/Wedding/js/main"></script>
 	<link href="/Public/Wedding/date/common.css" rel="stylesheet" type="text/css" />
-
+	
+	<script src="/Public/Wedding/js/jquery-1.9.1.min.js"></script>
+	<script src="/Public/Wedding/js/jquery.validate.js"></script>
+	<script src="/Public/Wedding/js/jquery-form.js"></script>
 </head>
 <body>
 <div class="bod_cent">
@@ -41,12 +44,15 @@
 			<tr>
 				<td colspan='2'>
 					<img src="/Public/Wedding/img/index_img10.jpg" alt="">
-					<div class="section3" id="section3">
-						<div id="preview" class="section3a" style="background-image:url(<?php echo $userpost['photo']?>);" >
-						
-						    <!-- <img id="imghead" width=100 height=100 border=0 src='/Public/Wedding/img/index_img7.jpg'> -->
+					
+						<form id="image_form" method="post" action=""  enctype="multipart/form-data">
+							<input type="file" name="Filedata" id="Filedata" value="" class="file"  style="display:none;"/>
+						</form>				
+						<div class="section3" id="section3">
+							<div id="preview" class="section3a" style="cursor: pointer;background-image:url(<?php echo $userpost['photo']?>);" >
+							    <!-- <img id="imghead" width=100 height=100 border=0 src='/Public/Wedding/img/index_img7.jpg'> -->
+							</div>
 						</div>
-					</div>
 				</td>
 			</tr>
 		</table>
@@ -55,47 +61,42 @@
 
 </div>
 <script>
- 
-                //图片上传预览    IE是用了滤镜。
-        function previewImage(file)
-        {
-          var MAXWIDTH  = 260; 
-          var MAXHEIGHT = 180;
-          var div = document.getElementById('preview');
-          if (file.files && file.files[0])
-          {
-              // div.innerHTML ='<img id=imghead>';
-              var img = document.getElementById('imghead');
-//               img.onload = function(){
-//                 // var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
-//                 img.width  =  rect.width;
-//                 img.height =  rect.height;
-// //                 img.style.marginLeft = rect.left+'px';
-//                 img.style.marginTop = rect.top+'px';
-//               }
-              var reader = new FileReader();
-              reader.onload = function(evt){
-              	// alert(evt.target.result)
-              	// alert(document.getElementById('preview'))
-              	document.getElementById('preview').style.backgroundImage = 'url(' + evt.target.result + ')';
-              	// img.src = evt.target.result;
-              }
-              // reader.onload = function(evt){
-              // 	alert(evt.target.result)
-              // 	div.style.backgroundImage = 'url' + evt.target.result;
-              // }
-              reader.readAsDataURL(file.files[0]);
-          }
-         
-        }
-        
+$(function(){
+	
+	$("#Filedata").change(function(){
+	    //$('#Filedata').bind("blur");
+	    $("#image_form").submit();
+	});
+
+	$("#preview").click(function(){
+		$("#Filedata").click();
+	});
+
+    $("#image_form").validate({
+        submitHandler: function(form)  {
+        	$(".profile_image").attr("src","");
+			$("#image_form").ajaxSubmit({
+				type:'POST',
+				url:"/wxt/wedding/photo/saveUserImage",
+				dataType: "json",
+				success:function(res){
+					$("#preview").css("background-image","url("+res.url+")");
+					//alert(res.url+"----"+res.width+"===="+res.height);
+					//$(".profile_image").attr("src",res.url);
+					//$(".profile_image").attr("width",res.width);
+					//$(".profile_image").attr("height",res.height);
+				}
+			});
+			return false;
+		}
+	});
+	
+});
+
 </script>
 <style type="text/css">
 
 </style>
-
-    <input type="file" id="filea" style="position:absolute;left:-888em" onchange="previewImage(this)" />   
-
 
 <div id="datePlugin"></div>
 

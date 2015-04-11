@@ -2,6 +2,8 @@
 
 namespace Wedding\Controller;
 
+use Org\Util\Date;
+
 use Wedding\Controller\BaseController;
 
 class IndexController extends BaseController {
@@ -260,6 +262,51 @@ class IndexController extends BaseController {
 		//redirect ( APP_NAME . '/wedding/' );
 	}
 	
+	public function save(){
+		$Model = M('User');
+		$where = "userid=$this->userid";
+		$Userpost = $Model->where ( $where )->find ();
+		
+		if (IS_POST){
+			if(I('man')){
+				$Userpost['man'] = I('man');
+			}else if(I('woman')){
+				$Userpost['woman'] = I('woman');
+			}else if(I('welocome')){
+				$Userpost ['welocome'] = str_replace ( array (
+					'&lt;',
+					'&gt;' 
+				), array (
+						'<',
+						'>' 
+				), $m_inv_desc );
+			}
+			$Userpost['update_time'] = time(); 
+            $Model->save($Userpost);
+            $data = array('code'=>100,'msg'=>'保存成功');
+            $this->ajaxReturn($data);
+        }
+	}
+	
+	public function saveTime(){
+		$Model = M('User');
+		$where = "userid=$this->userid";
+		$Userpost = $Model->where ( $where )->find ();
+		
+		if(IS_POST){
+			$wedding_time = strtotime(I('wedding_time'));
+			$Userpost['inv_date'] = date('Y/m/d',$wedding_time);
+			$Userpost['inv_time_1'] = date("H",$wedding_time);
+			$Userpost['inv_time_2'] = date("i",$wedding_time);
+			$Userpost['update_time'] = time();
+			
+            $Model->save($Userpost);
+            $data = array('code'=>100,'msg'=>'保存成功');
+            $this->ajaxReturn($data);
+			
+		}
+		
+	}
 	public function weddingPic(){
 		
 		$this->display(":wedding_pic");
