@@ -94,13 +94,12 @@
 <script src="/Public/Wedding/upload_js/js/jquery.fileupload-process.js"></script>
 <script src="/Public/Wedding/upload_js/js/jquery.fileupload-image.js"></script>
 <script src="/Public/Wedding/upload_js/js/jquery.fileupload-validate.js"></script>
-<script><!--
+<script>
 	$(function () {
     $('.add_icon').bind('click',function(){
         $('#fileupload').click();
     })
 
-    // alert($('#files em'))
 
     function textNum(){
         $('.d_iba').text($('#files div').length -1)
@@ -113,30 +112,21 @@
             ev.preventDefault();
 			var id = $(this).attr("data-id");
 			del(0, id, $(this));
-            //'timestamp' :  '<?php echo $timestamp;?>',
-			//'token'     : '<?php echo md5('unique_salt' . $timestamp);?>'
     })
-    var sd=false;
+    
     function del(v,id,ducument){
-        alert(id);
-		if(v==0){
-			 confirm('您确定要删除吗?','del',"'1','"+id+"'");return;
-		}
+		 if(confirm('您确定要删除吗?','del',"'1','"+id+"'")){
+			 $.post("<?php echo APP_NAME?>/wedding/photo/del",{'id':id,'type':'ajax'},function(data){
+	                console.log(data);
+	                //window.location.href=window.location.href;
+	                $(ducument).parents('div').eq(0).fadeOut(function(){
+	                    $(this).remove();
+	                    textNum()
+	                });
+	                return true;
+	        },'json');
+		 };
 		
-		if(sd){
-			return false;	
-		}
-		sd=true;
-		$.post("<?php echo APP_NAME?>/wedding/photo/del",{'id':id,'type':'ajax'},function(data){
-				console.log(data);
-				//window.location.href=window.location.href;
-				$(ducument).parents('div').eq(0).fadeOut(function(){
-	                $(this).remove();
-	                textNum()
-	            });
-				return true;
-		},'json');
-			
 	}
     // Change this to the location of your server-side upload handler:
     var url = '<?php echo APP_NAME?>/wedding/photo/upphoto',
@@ -251,6 +241,6 @@
     }).prop('disabled', !$.support.fileInput)
         .parent().addClass($.support.fileInput ? undefined : 'disabled');
 });
---></script>
+</script>
 </body>
 </html>
