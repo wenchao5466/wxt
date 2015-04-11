@@ -52,11 +52,7 @@ require(['zepto','datejs','iscroll'],function(){
 
 	})
 
-	$('.ckly .yyjb_cont_b').click(function(){
-		alert(0)
-		$('.ckly_t').find('.ckly_ta').eq(0).clone().appendTo($('.ckly_t'));
-		$('.ckly_t').find('.ckly_ta').eq(-1).addClass('bor_t1')
-	})
+	
 
 	// 制作 选择音乐
 	$('.zz_xzyy_ta .control').click(function(){
