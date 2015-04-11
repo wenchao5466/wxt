@@ -62,7 +62,7 @@ class BaseController extends Controller {
 	}
 	
 	protected function _empty(){
-    	$this->_view('404');
+    	$this->display(':404');
     }
     
 	private function _checklogin() {

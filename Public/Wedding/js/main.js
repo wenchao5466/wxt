@@ -1,5 +1,5 @@
 require.config({
-	baseUrl: '/Public/Wedding',
+	 baseUrl: '/Public/Wedding',
 	 paths:{
 	 	zepto:'js/zepto',
 	 	jquery:'date/jquery-1.9.1',
@@ -52,7 +52,6 @@ require(['zepto','datejs','iscroll'],function(){
 
 	})
 
-	
 
 	// 制作 选择音乐
 	$('.zz_xzyy_ta .control').click(function(){
@@ -62,17 +61,17 @@ require(['zepto','datejs','iscroll'],function(){
 				$(this).attr('name','pause');
 			})
 			$('.zz_xzyy_t .control img').each(function(){
-				$(this).attr('src','img/stop.png');
+				$(this).attr('src','/Public/Wedding/img/stop.png');
 			})
 			var this_music = $(this).parents('.zz_xzyy_ta').find('font').attr('data-url');
 			document.getElementById('music_a').setAttribute('src',this_music);
 			document.getElementById('music_a').play();
 			$(this).attr('name','play');
-			$(this).find('img').attr('src','img/play.png');
+			$(this).find('img').attr('src','/Public/Wedding/img/play.png');
 		}else{
 			document.getElementById('music_a').pause();
 			$(this).attr('name','pause');
-			$(this).find('img').attr('src','img/stop.png');
+			$(this).find('img').attr('src','/Public/Wedding/img/stop.png');
 		}
 	})
 
@@ -96,8 +95,9 @@ require(['zepto','datejs','iscroll'],function(){
 	$('.zz_xzyy .btn1').click(function(){
 		$('.select').each(function(){
 			if($(this).attr('name') == 'checked'){
-				alert($(this).parents('.zz_xzyy_ta').find('font').text());
-				window.location.href="首页a.html"
+				var name = $(this).parents('.zz_xzyy_ta').find('font').text();
+				var id = $(this).parents('.zz_xzyy_ta').find('font').attr('data-id');
+				window.location.href="/wxt/wedding/index/selectMusic/id/"+id+"/name/"+name;
 				return false;
 			}
 		})
@@ -107,12 +107,20 @@ require(['zepto','datejs','iscroll'],function(){
 	$('.btn1_mb').click(function(){
 		$('.zz_mb td').each(function(){
 			if($(this).find('em').attr('name') == 'aa'){
-				alert($(this).find('span').text());
-				window.location.href="首页a.html"
+				var stylename = $(this).find('span').attr('data-id');//$(this).find('span').text();
+				window.location.href="/wxt/wedding/index/selectTemplate/style/"+stylename;
 				return false;
 			}
 		})
 			
+		
+	})
+	//输入地址跳转
+	$('#submit_address').click(function(){
+		var address = $("#address").val();
+		window.location.href="/wxt/wedding/index/address/name/"+address;
+		return false;
+		
 		
 	})
 
@@ -158,9 +166,7 @@ require(['zepto','datejs','iscroll'],function(){
 				})
 		})
 
-		$('.section3a').css({
-			height:$('.section3a').width()+'px'
-		})
+		$('.section3a').css('height',$('.section3a').width()+'px');
 	})
 
 
