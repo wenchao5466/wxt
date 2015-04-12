@@ -176,18 +176,15 @@ class IndexController extends BaseController {
 		if(I('name')){
 			$name = I('name');
 			$Userpost['location'] = I("name");
-			echo $Model->save($Userpost);
+			$Model->save($Userpost);
 		}
 		if($Userpost['location']){
 			$name = $Userpost['location'];
 		}else{
 			$name = '北京市';
 		}
-		
-		
-		
 		$this->assign('address',$name);
-		$this->assign('userpost',$userpost);
+		$this->assign('userpost',$Userpost);
 		$this->display(":address");
 	}
 	

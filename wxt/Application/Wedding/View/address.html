@@ -18,12 +18,12 @@
 <script src="/public/Wedding/js/require.js" data-main="/Public/Wedding/js/main"></script>
 <link rel="shortcut icon" href="/Public/Home/favicon.ico" type="image/x-icon" />
 <script src="/Public/Member/js/jquery-1.4.2.min.js" type="text/javascript"></script>
-<script src="/Public/Wedding/js/address.js" type="text/javascript"></script>
 <script src="/Public/Member/js/jquery.Jcrop.js" type="text/javascript"></script>
 <script>
 	var m_inv_lng = '<?php echo $userpost["location_x"]?>';
 	var m_inv_lat = '<?php echo $userpost["location_y"]?>';
 </script>
+<script src="/Public/Wedding/js/address.js" type="text/javascript"></script>
 
 <script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp"></script>
 <script>
@@ -52,6 +52,7 @@
 	</div>
 <form id="address_form" method="post" action="/wxt/wedding/index/saveAddress">
 	<input type="hidden" id="m_inv_address" name="m_inv_address" value="{$address}" />
+	<input type="hidden" id="m_inv_city" name="m_inv_city" value="{$address}" />
 	<input type="hidden" id="m_isqqmap" name="m_isqqmap" value="1" />
 	<input type="hidden" name="mapX" id="mapX" value="{$userpost['location_x']}" />
 	<input type="hidden" name="mapY" id="mapY" value="{$userpost['location_y']}" />
