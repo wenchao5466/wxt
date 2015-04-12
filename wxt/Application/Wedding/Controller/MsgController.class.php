@@ -15,6 +15,7 @@ class MsgController extends BaseController {
         $Page->show();
         
         $this->assign('total_page',$Page->totalPages);
+        $this->assign('count',$count);
     	$this->display(':comments');
     }
     public function glist(){
@@ -55,9 +56,8 @@ class MsgController extends BaseController {
 }
     
     public function del(){
-        $this->_checklogin();
         if (IS_POST){
-             $id = I('post.id','','htmlspecialchars');
+             $id = I('id');
              $model = M();
              $users = $model->query("delete from wxt_message WHERE id=$id");
              $data['status']  = 1;

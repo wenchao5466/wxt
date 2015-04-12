@@ -5,9 +5,47 @@ namespace Wedding\Controller;
 use Wedding\Controller\BaseController;
 
 class GuestController extends BaseController {
-	private $pagesize = 10;
+	private $pagesize = 5;
 	
-	public function glist() {
+	public function glist(){
+		$current_page = I('page');
+		$prev_page = I('prev_page');
+		$next_page = I('next_page');
+	
+		$Guest = M('Guest');
+		$Userpost = M('Userpost')->where("userid=$this->userid")->find();
+	
+		$where = "postid={$Userpost['id']}";
+		$count = $Guest->where($where)->count();
+		if($Userpost && $count){
+	
+			$Page    = new \Think\Page($count,  $this->pagesize);
+	
+			$Guests = $Guest->where($where)->order('create_time desc')->limit($Page->firstRow.','.$Page->listRows)->select();
+			
+			$Page->show();
+			$result['list'] = $Guests;
+			$result['page'] = $current_page + 1;
+			$result['prev_page'] = $prev_page + 1;
+			$result['next_page'] = $next_page + 1;
+			$result['total_page'] = $Page->totalPages;
+			$result['man'] = $man;
+			$result['men'] = $men;
+			
+			$this->ajaxReturn($result);
+			 
+		}else{
+			$Msg_list = array();
+			$count = 0;
+			$data = array('total_page'=>0);
+	
+			$this->ajaxReturn();
+		}
+	
+	
+	
+	}
+	public function index() {
 		
 		$Guest = M ( 'Guest' );
 		$Userpost = M ( 'Userpost' )->where ( "userid=$this->userid " )->find ();
@@ -40,19 +78,7 @@ class GuestController extends BaseController {
 			$this->assign ( 'men', 0 );
 		}
 		$this->assign ( 'guests', $Guests );
-		$this->assign ( 'count', $count );
+		$this->assign ( 'count', $man+$men );
 		$this->display ( ':guest_glist' );
-	}
-	public function del() {
-		$this->_checklogin ();
-		
-		if (IS_POST) {
-			$id = I ( 'post.id', '', 'htmlspecialchars' );
-			$model = M ();
-			$users = $model->query ( "delete from wxt_guest WHERE id=$id" );
-			$data ['status'] = 1;
-			$data ['msg'] = "删除成功";
-			$this->ajaxReturn ( $data );
-		}
 	}
 }
