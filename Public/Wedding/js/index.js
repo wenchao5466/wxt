@@ -34,6 +34,9 @@ $(function(){
 	$("#woman, #man, #welcome").change(function(){
 		save(this);
 	});
+	$("#welcome").blur(function(){
+		save(this);
+	});
 	
 	
 	/* var opt = {
