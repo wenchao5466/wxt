@@ -11,7 +11,7 @@ class SendController extends BaseController{
         $Userpost = M('Userpost')->where("userid=$this->userid")->find();
         
         if($Userpost){
-                  $str = "http://".$_SERVER['HTTP_HOST']."/wxt/xt/?code={$Userpost['code']}";
+                  $str = "http://".$_SERVER['HTTP_HOST']."/wxt/xt/?type=2&code={$Userpost['code']}";
                   $this->assign('text',  urlencode($str));
                   $this->assign('url',  $str);
          }else{

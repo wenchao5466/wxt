@@ -20,7 +20,7 @@ function save (url,form) {
 function save(document){
 	var key = $(document).attr('data-key');
 	var value = $(document).val();
-	$.post("<?php echo APP_NAME?>/wedding/index/save",{key:value,'type':'ajax'},function(data){
+	$.post("/wxt/wedding/index/save",{'key':key,'value':value,'type':'ajax'},function(data){
 			console.log(data);
 			//window.location.href=window.location.href;
 			
@@ -32,7 +32,7 @@ function save(document){
 function saveTime(document){
 	var key = $(document).attr('data-key');
 	var value = $(document).val();
-	$.post("<?php echo APP_NAME?>/wedding/index/saveTime",{'wedding_time':value,'type':'ajax'},function(data){
+	$.post("/wxt/wedding/index/saveTime",{'wedding_time':value,'type':'ajax'},function(data){
 		console.log(data);
 		//window.location.href=window.location.href;
 		return true;
@@ -42,7 +42,10 @@ function saveTime(document){
 
 
 $(function(){
-	$("#woman, #man, #m_inv_desc").blur(function(){
+	$("#woman, #man, #welcome").blur(function(){
 		save(this);
+	});
+	$("#endTime").blur(function(){
+		saveTime(this);
 	});
 });

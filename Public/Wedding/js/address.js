@@ -86,8 +86,8 @@ var marker = null;
 							var str = "";
 							var list = results.detail.pois;
 							for (var i = 0; i < list.length; i++) {
-
-								str += '<div style="cursor:pointer" class="zz_ddsr_texta" id="item_'+(i + 1)+'" onClick="setMapcenter(\'' + list[i].latLng.lat+ '\',\''+ list[i].latLng.lng+ '\',this)"><font class="d_b">'+list[i].address+'</font>';
+								var address = list[i].address != undefined ? list[i].address : list[i].name;
+								str += '<div style="cursor:pointer" class="zz_ddsr_texta" id="item_'+(i + 1)+'" onClick="setMapcenter(\'' + list[i].latLng.lat+ '\',\''+ list[i].latLng.lng+ '\',this)"><font class="d_b">'+address+'</font>';
 								str += list[i].name;
 								str += '	<em class="checked"><img src="/Public/Wedding/img/map_img2.jpg" alt="" style="display:none;"></em>';
 								str += '</div>';

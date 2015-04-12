@@ -21,60 +21,13 @@ class IndexController extends BaseController {
 		$Model = M ( 'Userpost' );
 		$where = "userid=$this->userid";
 		$Userpost = $Model->where ( $where )->find ();
-		
-		$openid = session ( 'openid' );
-		if (IS_POST) {
-			
-			$m_inv_boy = I ( 'post.m_inv_boy', '', 'htmlspecialchars' );
-			$m_inv_girl = I ( 'post.m_inv_girl', '', 'htmlspecialchars' );
-			$m_inv_date = I ( 'post.m_inv_date', '', 'htmlspecialchars' );
-			$m_inv_time_1 = I ( 'post.m_inv_time_1', '', 'htmlspecialchars' );
-			$m_inv_time_2 = I ( 'post.m_inv_time_2', '', 'htmlspecialchars' );
-			$m_isqqmap = I ( 'post.m_isqqmap', '', 'htmlspecialchars' );
-			
-			$m_inv_city = I ( 'post.m_inv_city', '', 'htmlspecialchars' );
-			$m_inv_address = I ( 'post.m_inv_address', '', 'htmlspecialchars' );
-			$m_inv_desc = I ( 'post.m_inv_desc', '', 'htmlspecialchars' );
-			$isupimg = I ( 'post.isupimg', '', 'htmlspecialchars' );
-			$mapx = I ( 'post.mapx', '', 'htmlspecialchars' );
-			$mapy = I ( 'post.mapy', '', 'htmlspecialchars' );
-			$m_bjyy = I ( 'post.m_bjyy', '', 'htmlspecialchars' );
-			$m_bjyytitle = I ( 'post.m_bjyytitle', '', 'htmlspecialchars' );
-			$m_bg = I ( 'post.m_bg', '', 'htmlspecialchars' );
-			
-			$data ['userid'] = $this->userid;
-			$data ['man'] = $m_inv_boy;
-			$data ['woman'] = $m_inv_girl;
-			$data ['inv_date'] = $m_inv_date;
-			$data ['inv_time_1'] = $m_inv_time_1;
-			$data ['inv_time_2'] = $m_inv_time_2;
-			$data ['city'] = $m_inv_city;
-			$data ['location'] = $m_inv_address;
-			$data ['location_x'] = $mapx;
-			$data ['location_y'] = $mapy;
-			$data ['welocome'] = str_replace ( array (
-					'&lt;',
-					'&gt;' 
-			), array (
-					'<',
-					'>' 
-			), $m_inv_desc );
-			$data ['photo'] = str_replace ( "http://" . $_SERVER ['HTTP_HOST'], "", $isupimg );
-			$data ['style'] = $m_bg;
-			$data ['music'] = $m_bjyy; // $m_bjyy ? "http://mp3.jiapai.cc/wxt/$m_bjyy.mp3" : "";
-			$data ['musictitle'] = $m_bjyytitle;
-			
-			if ($Userpost) {
-				$Model->where ( $where )->save ( $data );
-			} else {
-				$data ['code'] = generation_guid_string ();
-				$Model->add ( $data );
-			}
-			
-			$data ['status'] = 1;
-			$data ['msg'] = "修改成功";
-			$this->ajaxReturn ( $data );
+		if($Userpost['wedding_time']){
+			$Userpost['date_time'] = date('Y-m-d H:i',$Userpost['wedding_time']);
+		}else{
+			$Userpost['date_time'] = '';
 		}
+// 		var_dump($Userpost);die;
+		$openid = session ( 'openid' );
 		
 		$style = array (
 				"Default" => "浅水语行",
@@ -95,9 +48,9 @@ class IndexController extends BaseController {
 				"Huiyijuhui" => "会议聚会" 
 		);
 		$Userpost ['stylename'] = array_key_exists ( $Userpost ['style'], $style ) ? $style [$Userpost ['style']] : '';
-		$Userpost['date_time'] = $userpost['inv_date'].' '.$userpost['inv_time_1'].':'.$userpost['inv_time_2'];
-		if($userpost['inv_date'] == "" && $userpost['inv_time_1']=="" && $userpost['inv_time_2'] == "")
-			$Userpost['date_time'] = "";
+// 		$Userpost['date_time'] = $userpost['inv_date'].' '.$userpost['inv_time_1'].':'.$userpost['inv_time_2'];
+// 		if($userpost['inv_date'] == "" && $userpost['inv_time_1']=="" && $userpost['inv_time_2'] == "")
+// 			$Userpost['date_time'] = "";
 		$this->assign ( 'userpost', $Userpost );
 		
 		$this->display ( ':index' );
@@ -263,43 +216,38 @@ class IndexController extends BaseController {
 	}
 	
 	public function save(){
-		$Model = M('User');
+		$Model = M('Userpost');
 		$where = "userid=$this->userid";
 		$Userpost = $Model->where ( $where )->find ();
-		
 		if (IS_POST){
-			if(I('man')){
-				$Userpost['man'] = I('man');
-			}else if(I('woman')){
-				$Userpost['woman'] = I('woman');
-			}else if(I('welocome')){
-				$Userpost ['welocome'] = str_replace ( array (
-					'&lt;',
-					'&gt;' 
-				), array (
-						'<',
-						'>' 
-				), $m_inv_desc );
+			if(I('key') == 'man'){
+				$Userpost['man'] = I('value');
+			}else if(I('key') == 'woman'){
+				$Userpost['woman'] = I('value');
+			}else if(I('key') == 'welcome'){
+				$m_inv_desc = I('value');
+				$Userpost ['welocome'] = $m_inv_desc;
 			}
 			$Userpost['update_time'] = time(); 
-            $Model->save($Userpost);
+			$Model->save($Userpost);
             $data = array('code'=>100,'msg'=>'保存成功');
             $this->ajaxReturn($data);
         }
 	}
 	
 	public function saveTime(){
-		$Model = M('User');
+		$Model = M('Userpost');
 		$where = "userid=$this->userid";
 		$Userpost = $Model->where ( $where )->find ();
-		
 		if(IS_POST){
 			$wedding_time = strtotime(I('wedding_time'));
 			$Userpost['inv_date'] = date('Y/m/d',$wedding_time);
+// 		echo $wedding_time.date('Y/m/d',$wedding_time);die;
 			$Userpost['inv_time_1'] = date("H",$wedding_time);
 			$Userpost['inv_time_2'] = date("i",$wedding_time);
 			$Userpost['update_time'] = time();
-			
+			$Userpost['wedding_time'] = $wedding_time;
+			$Userpost['update_time'] = time();
             $Model->save($Userpost);
             $data = array('code'=>100,'msg'=>'保存成功');
             $this->ajaxReturn($data);

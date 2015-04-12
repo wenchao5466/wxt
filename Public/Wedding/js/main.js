@@ -146,7 +146,7 @@ require(['zepto','datejs','iscroll'],function(){
 	// 首页
 	$(function(){
 		var a = null;
-		$('.index_cent .mytxt').focus(function(){
+		/*$('.index_cent .mytxt').focus(function(){
 			if($(this).find('em')){
 				a = $(this).find('em').clone();
 			}
@@ -158,7 +158,7 @@ require(['zepto','datejs','iscroll'],function(){
 			if($(this).text().length == 0){
 				$(this).append(a)
 			}
-		})
+		})*/
 
 		$('.section1').each(function(){
 				$(this).css({
