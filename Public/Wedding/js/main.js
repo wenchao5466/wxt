@@ -9,8 +9,6 @@ require.config({
 })
 
 require(['zepto','datejs','iscroll'],function(){
-
-	$('#endTime').date({theme:"datetime"});
 	// alert($("#yearwrapper ul li"))
 
 	// 设置字体
@@ -39,9 +37,9 @@ require(['zepto','datejs','iscroll'],function(){
 	})
 
 	// 应邀嘉宾下拉
-	$('.yyjb_cont .yyjb_cont_b').click(function(){
+	/*$('.yyjb_cont .yyjb_cont_b').click(function(){
 		$('.yyjb_cont_a').find('.yyjb_cont_t').eq(0).clone().appendTo($('.yyjb_cont_a'))
-	})
+	})*/
 
 	// 查看留言删除
 	$('.ckly_t .ckly_ta_r a').bind('click',function(){
@@ -159,12 +157,12 @@ require(['zepto','datejs','iscroll'],function(){
 				$(this).append(a)
 			}
 		})*/
-
+/*
 		$('.section1').each(function(){
 				$(this).css({
-					lineHeight:$('.section1').height()+'px'
+					lineHeight:'px'
 				})
-		})
+		})*/
 
 		$('.section3a').css('height',$('.section3a').width()+'px');
 	})

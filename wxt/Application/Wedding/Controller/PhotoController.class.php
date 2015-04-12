@@ -270,7 +270,7 @@ class PhotoController extends baseController {
 					$image->open($_SERVER['DOCUMENT_ROOT']."/Uploads/".$info['savepath'].$info['savename']);
 					//将图片裁剪为400x400并保存为corp.jpg
 //					$image->crop(200, 200)->save($_SERVER['DOCUMENT_ROOT']."/Uploads/".$info['savepath'].$info['savename']);
-					$image->thumb(200, 200)->save($_SERVER['DOCUMENT_ROOT']."/Uploads/".$info['savepath'].$info['savename']);
+					$image->thumb(400, 400, \Think\Image::IMAGE_THUMB_CENTER)->save($_SERVER['DOCUMENT_ROOT']."/Uploads/".$info['savepath'].$info['savename']);
                     $data['status']  = "1";
                     $data['msg'] = '上传成功';
                     $data['url'] = "/Uploads/".$info['savepath'].$info['savename'];

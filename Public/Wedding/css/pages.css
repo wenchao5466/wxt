@@ -153,7 +153,7 @@ table.zz_mb td{margin:1.5rem 0;padding:0 .7% 0;width:32%;position:relative;}
 .mytxt:focus{outline:none;}
 .mytxt em{color:#fff;opacity:0.4;}
 .index_cent td{padding:0 .2rem;text-align:center;box-sizing:border-box;position:relative;vertical-align:middle;text-align:center;}
-.section1{position:absolute;top:0;bottom:0;left:26%;color:#fff;font-size:1.6rem;}
+.section1{position:absolute;top:0;bottom:0;left:26%;color:#fff;font-size:1.6rem;line-height:100px;}
 .section2{color:#fff;top:62%;}
 .section3{position:absolute;top:0;left:0;width:100%;height:100%;text-align:center;}
 .section3 img{width:25%;margin-top:1.6rem;}
@@ -162,7 +162,9 @@ table.zz_mb td{margin:1.5rem 0;padding:0 .7% 0;width:32%;position:relative;}
 .mytxt1{width:80%;left:15%;top:6%;height:90%;font-size:1.6rem;text-align:left;}
 
 .btn1_mb1{width:auto;background-color:#ff6483;border-radius:0;margin:0 .2rem;}
-
+#wedding_date{font-size: 1.4rem;padding-top: 5px;}
+#wedding_date{left: 10%;}
+#wedding_time{left: 0;padding-top: 5px;}
 
 
 

@@ -21,11 +21,21 @@ class IndexController extends BaseController {
 		$Model = M ( 'Userpost' );
 		$where = "userid=$this->userid";
 		$Userpost = $Model->where ( $where )->find ();
-		if($Userpost['wedding_time']){
-			$Userpost['date_time'] = date('Y-m-d H:i',$Userpost['wedding_time']);
+		if($Userpost['inv_time_1']){
+			$Userpost['date_time'] = implode(':', array($Userpost['inv_time_1'], $Userpost['inv_time_2']));
 		}else{
 			$Userpost['date_time'] = '';
 		}
+		
+		if($Userpost['inv_date']){
+			$value = $Userpost['inv_date'];
+			list($year,$month,$day) = explode('/', $value);
+			$inv_date = $year . '年' . $month . '月' . $day . '日';
+			$Userpost['inv_date'] = $inv_date;
+		}else{
+			$Userpost['inv_date'] = '';
+		}
+		
 // 		var_dump($Userpost);die;
 		$openid = session ( 'openid' );
 		
@@ -240,13 +250,25 @@ class IndexController extends BaseController {
 		$where = "userid=$this->userid";
 		$Userpost = $Model->where ( $where )->find ();
 		if(IS_POST){
-			$wedding_time = strtotime(I('wedding_time'));
-			$Userpost['inv_date'] = date('Y/m/d',$wedding_time);
-// 		echo $wedding_time.date('Y/m/d',$wedding_time);die;
-			$Userpost['inv_time_1'] = date("H",$wedding_time);
-			$Userpost['inv_time_2'] = date("i",$wedding_time);
+			$wedding_time = I('wedding_time');
+			//var_dump($wedding_time);
+ 		//echo $wedding_time.date('hh:ss',$wedding_time);die;
+ 			$times = explode(':', $wedding_time);
+			$Userpost['inv_time_1'] = $times[0];
+			$Userpost['inv_time_2'] = $times[1];
 			$Userpost['update_time'] = time();
-			$Userpost['wedding_time'] = $wedding_time;
+            $Model->save($Userpost);
+            $data = array('code'=>100,'msg'=>'保存成功');
+            $this->ajaxReturn($data);
+		}
+	}
+	public function saveDate(){
+		$Model = M('Userpost');
+		$where = "userid=$this->userid";
+		$Userpost = $Model->where ( $where )->find ();
+		if(IS_POST){
+			$wedding_date = I('wedding_date');
+			$Userpost['inv_date'] = $wedding_date;//date('Y/m/d',$wedding_date);
 			$Userpost['update_time'] = time();
             $Model->save($Userpost);
             $data = array('code'=>100,'msg'=>'保存成功');

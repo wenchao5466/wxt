@@ -22,7 +22,16 @@ class GuestController extends BaseController {
 			$Page    = new \Think\Page($count,  $this->pagesize);
 	
 			$Guests = $Guest->where($where)->order('create_time desc')->limit($Page->firstRow.','.$Page->listRows)->select();
-			
+			foreach ($Guests as $key=>$g){
+				$num = 0;
+				$desc = $g['description'];
+				preg_match('/\d+/',$desc,$arr);
+				$num = (int)$arr[0];
+				preg_match("/(.*)（/isU",$desc,$matches);
+				$str = $matches[1];
+				$Guests[$key]['str'] = $str;
+				$Guests[$key]['num'] = $num;
+			}
 			$Page->show();
 			$result['list'] = $Guests;
 			$result['page'] = $current_page + 1;
@@ -39,7 +48,7 @@ class GuestController extends BaseController {
 			$count = 0;
 			$data = array('total_page'=>0);
 	
-			$this->ajaxReturn();
+			$this->ajaxReturn($data);
 		}
 	
 	
@@ -53,7 +62,7 @@ class GuestController extends BaseController {
 			$where = "postid={$Userpost['id']} ";
 			$count = $Guest->where ( $where )->count ();
 			$Page = new \Think\Page ( $count, $this->pagesize );
-			$Guests = $Guest->where ( $where )->order ( 'create_time desc' )->limit ( $Page->firstRow . ',' . $Page->listRows )->select ();
+			$Guests = $Guest->where ( $where )->order ( 'create_time desc' )->select ();
 			$man = 0; 
 			$men = 0;
 			foreach ($Guests as  $guest){
@@ -68,6 +77,7 @@ class GuestController extends BaseController {
 				}
 			}
 			$this->assign ( 'page', $Page->show () );
+			$this->assign ( 'total_page', $Page->totalPages);
 			$this->assign ( 'man', $man );
 			$this->assign ( 'men', $men );
 		} else {
@@ -77,6 +87,7 @@ class GuestController extends BaseController {
 			$this->assign ( 'man', 0 );
 			$this->assign ( 'men', 0 );
 		}
+		
 		$this->assign ( 'guests', $Guests );
 		$this->assign ( 'count', $man+$men );
 		$this->display ( ':guest_glist' );
