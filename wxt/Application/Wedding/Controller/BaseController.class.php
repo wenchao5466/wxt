@@ -19,6 +19,7 @@ class BaseController extends Controller {
 			session('user_id',110);
 		
 		}
+		
 		if(!cookie('user_id')  && !session('user_id')){
 			$weObj = new Wechat($this->_options);
 			// 		$weObj->valid();//明文或兼容模式可以在接口验证通过后注释此句，但加密模式一定不能注释，否则会验证失败
@@ -87,6 +88,6 @@ class BaseController extends Controller {
 		$weObj = new Wechat($this->_options);
 		$callback = C('WEB_HOST')."/wxt/wedding/index/index";
 		$jump_url = $weObj->getOauthRedirect($callback,1);
-		header("location: $jump_url");
+		header("location: $jump_url");die;
 	}
 }
