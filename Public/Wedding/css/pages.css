@@ -128,7 +128,7 @@ table.zz_mb td{margin:1.5rem 0;padding:0 .7% 0;width:32%;position:relative;}
 .zz_dd a,.zz_ddsr_bot a,.zz_xzyy .btn1,.btn1_mb{display:block;margin:auto;background-color:#ff6582;color:#fff;width:90%;height:4rem;line-height:4rem;font-size:1.6rem;}
 .zz_ddsr{height:100%;}
 .zz_ddsr_text{position:relative;overflow:scroll;}
-.zz_ddsr_bot{height:5rem;position:fixed;bottom:0;}
+.zz_ddsr_bot{height:5rem;/* position:fixed; */bottom:0;}
 .zz_ddsr_bot a img{position:relative;top:.35rem;margin-right:.4rem;}
 .zz_ddsr_bot a{display:inline-block;margin-top:0.5rem;}
 .zz_ddsr_texta{color:#999;box-sizing:border-box;padding:.5rem;line-height:1.4rem;border-bottom:2px #f5f5f5 solid;position:relative;}
