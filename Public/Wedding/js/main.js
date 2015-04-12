@@ -157,12 +157,12 @@ require(['zepto','datejs','iscroll'],function(){
 				$(this).append(a)
 			}
 		})*/
-
+/*
 		$('.section1').each(function(){
 				$(this).css({
 					lineHeight:'px'
 				})
-		})
+		})*/
 
 		$('.section3a').css('height',$('.section3a').width()+'px');
 	})
